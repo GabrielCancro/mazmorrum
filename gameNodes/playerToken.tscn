@@ -11,6 +11,7 @@ script = ExtResource( 3 )
 position = Vector2( 144, 0 )
 current = true
 smoothing_enabled = true
+smoothing_speed = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.0901961, 0.211765, 1, 1 )

@@ -8,7 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	DungeonManager._initialize_dungeon_manager(self)
 
 func _input(ev):
 	var dir = Vector2()
@@ -17,8 +17,4 @@ func _input(ev):
 	if Input.is_action_just_pressed("ui_up"): dir.y = -1
 	if Input.is_action_just_pressed("ui_down"): dir.y = 1
 	
-	if dir.length()!=0:
-		var room = $Map.get_room($Map/PlayerToken.map_position.x+dir.x, $Map/PlayerToken.map_position.y+dir.y)
-		if room:
-			$Map/PlayerToken.map_position += dir
-			Effector.move_to($Map/PlayerToken,room.position)
+	if dir.length()!=0: DungeonManager.move_player(dir)

@@ -21,3 +21,7 @@ func create_room(x,y):
 func get_room(x,y):
 	var node_name = "room_"+str(x)+"_"+str(y)
 	return get_node_or_null("Rooms/"+node_name)
+
+func try_explore_room(x,y):
+	var test_room = get_room(x,y)
+	if test_room: test_room.explore()
