@@ -14,5 +14,6 @@ func move_to(node,pos):
 
 func appear(node):
 	node.modulate.a = 0
+	node.visible = true
 	tween.interpolate_property(node,"modulate",Color(1,1,1,0),Color(1,1,1,1),.3,Tween.TRANS_EXPO,Tween.EASE_IN)
 	tween.start()

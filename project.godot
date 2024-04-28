@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "PlayerToken",
+"language": "GDScript",
+"path": "res://gameNodes/playerToken.gd"
+} ]
+_global_script_class_icons={
+"PlayerToken": ""
+}
+
 [application]
 
 config/name="Mazmorreum"
@@ -18,6 +28,8 @@ config/icon="res://icon.png"
 
 Effector="*res://autoloads/effector.gd"
 DungeonManager="*res://autoloads/dungeonManager.gd"
+DataManager="*res://autoloads/dataManager.gd"
+RoomAction="*res://autoloads/roomAction.gd"
 
 [display]
 

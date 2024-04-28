@@ -1,14 +1,27 @@
 extends Node2D
 
-var is_explored = false
+var data = {
+	"is_explored":false,
+	"type":"empty",
+	"dif":8,
+	"map_position":Vector2()
+}
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = is_explored
+	generate_random_room()
+	DataManager.data.rooms[name] = data
+	$Label.text = data.type.to_upper() + " " + str(data.dif)
+	visible = data.is_explored
 	modulate.a = 0
 
 func explore():
-	if is_explored: return
-	is_explored = true
-	visible = is_explored
+	if data.is_explored: return
+	data.is_explored = true
+	visible = data.is_explored
 	Effector.appear(self)
+
+func generate_random_room():
+	randomize()
+	var types = ["empty","trap","chest","enemy"]
+	data.type = types[ randi()%types.size() ]
+	data.dif = 6 + randi()%5

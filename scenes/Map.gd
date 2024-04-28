@@ -6,6 +6,7 @@ func _ready():
 
 func create_level(lv):
 	for r in $Rooms.get_children():
+		DataManager.data.rooms.erase(r.name)
 		$Rooms.remove_child(r)
 		r.queue_free()
 	for x in range(10):
@@ -15,6 +16,7 @@ func create_level(lv):
 func create_room(x,y):
 	var r = preload("res://gameNodes/room.tscn").instance()
 	r.position = Vector2(x,y) * room_size * r.scale
+	r.data.map_position = Vector2(x,y)
 	r.name = "room_"+str(x)+"_"+str(y)
 	$Rooms.add_child(r)
 
