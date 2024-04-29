@@ -23,13 +23,12 @@ layer = -1
 [node name="BG" type="ColorRect" parent="CanvasLayerBG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0745098, 0.0705882, 0.133333, 0.980392 )
+color = Color( 0.0745098, 0.0705882, 0.133333, 1 )
 
 [node name="BG_INPUT" type="ColorRect" parent="CanvasLayerBG"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0.0784314 )
+color = Color( 1, 1, 1, 0.0117647 )
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2( 412, 300 )
@@ -56,6 +55,13 @@ position = Vector2( -256, 0 )
 position = Vector2( -3, 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG_DAMAGE" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 0, 0, 0.533333 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.415686, 0, 0, 1 )
 
 [node name="RightPanel" type="Control" parent="CanvasLayer"]
 anchor_left = 1.0
