@@ -5,7 +5,11 @@ var data = {
 	"type":"empty",
 	"dif":8,
 	"hp":2,
-	"map_position":Vector2()
+	"map_position":Vector2(),
+	"tokens":[
+		{"type":"trap"},
+		{"type":"chest"}
+	]
 }
 
 func _ready():

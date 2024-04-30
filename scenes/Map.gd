@@ -15,7 +15,7 @@ func create_level(lv):
 
 func create_room(x,y):
 	var r = preload("res://gameNodes/room.tscn").instance()
-	r.position = Vector2(x,y) * room_size * r.scale
+	r.position = Vector2(x,y) * room_size * 0.7
 	r.data.map_position = Vector2(x,y)
 	r.name = "room_"+str(x)+"_"+str(y)
 	$Rooms.add_child(r)
