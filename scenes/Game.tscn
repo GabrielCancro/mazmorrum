@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameNodes/room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameNodes/playerSheet.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://scenes/Game.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Map.gd" type="Script" id=7]
 [ext_resource path="res://gameNodes/dice.tscn" type="PackedScene" id=8]
-[ext_resource path="res://gameNodes/roomToken.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -19,20 +18,71 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
 
-[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+[node name="CL_BG" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="BG" type="ColorRect" parent="CanvasLayerBG"]
+[node name="BG" type="ColorRect" parent="CL_BG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0.0745098, 0.0705882, 0.133333, 1 )
 
-[node name="BG_INPUT" type="ColorRect" parent="CanvasLayerBG"]
+[node name="BG_INPUT" type="ColorRect" parent="CL_BG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0.0117647 )
+
+[node name="CL_UI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="BG_DAMAGE" type="ColorRect" parent="CL_UI"]
+visible = false
+modulate = Color( 1, 0, 0, 0.533333 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.415686, 0, 0, 1 )
+
+[node name="DungeonLevel" type="TextureRect" parent="CL_UI"]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+margin_left = 23.0
+margin_top = 17.0
+margin_right = 92.0
+margin_bottom = 105.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="PlayerSheet" parent="CL_UI" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 895.0
+margin_top = 4.0
+margin_right = 1195.0
+margin_bottom = 154.0
+
+[node name="Button" type="Button" parent="CL_UI"]
+visible = false
+margin_left = 246.0
+margin_top = 533.0
+margin_right = 534.0
+margin_bottom = 573.0
+custom_fonts/font = SubResource( 1 )
+text = "USAR FUENTE SANADORA"
+
+[node name="Dice" parent="CL_UI" instance=ExtResource( 8 )]
+visible = false
+margin_left = 640.0
+margin_top = 100.0
+margin_right = 680.0
+margin_bottom = 140.0
+
+[node name="Dice2" parent="CL_UI" instance=ExtResource( 8 )]
+visible = false
+margin_left = 716.0
+margin_top = 130.0
+margin_right = 756.0
+margin_bottom = 170.0
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2( 412, 300 )
@@ -57,69 +107,3 @@ position = Vector2( -248, 0 )
 
 [node name="PlayerToken" parent="Map" instance=ExtResource( 4 )]
 position = Vector2( -3, 5 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="BG_DAMAGE" type="ColorRect" parent="CanvasLayer"]
-visible = false
-modulate = Color( 1, 0, 0, 0.533333 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.415686, 0, 0, 1 )
-
-[node name="RightPanel" type="Control" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -331.0
-
-[node name="BG" type="ColorRect" parent="CanvasLayer/RightPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.12549, 0.121569, 0.180392, 0.980392 )
-
-[node name="PlayerSheet" parent="CanvasLayer/RightPanel" instance=ExtResource( 2 )]
-margin_left = 15.0
-margin_top = 16.0
-margin_right = -16.0
-margin_bottom = -434.0
-
-[node name="DungeonLevel" type="TextureRect" parent="CanvasLayer"]
-modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
-margin_left = 23.0
-margin_top = 17.0
-margin_right = 105.0
-margin_bottom = 138.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -354.0
-margin_top = -67.0
-margin_right = -18.0
-margin_bottom = -20.0
-custom_fonts/font = SubResource( 1 )
-text = "USAR FUENTE SANADORA"
-
-[node name="Dice" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 640.0
-margin_top = 100.0
-margin_right = 690.0
-margin_bottom = 150.0
-
-[node name="RoomToken" parent="CanvasLayer" instance=ExtResource( 9 )]
-margin_left = 169.0
-margin_top = 58.0
-margin_right = -961.0
-margin_bottom = -472.0
-
-[node name="Dice2" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 716.0
-margin_top = 130.0
-margin_right = 766.0
-margin_bottom = 180.0

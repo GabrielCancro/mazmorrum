@@ -17,19 +17,32 @@ func _ready():
 	DataManager.data.rooms[name] = data
 	update_room()
 	visible = data.is_explored
+	if int(data.map_position.x)%2==0: position.y -= 200
+	z_index = -1000 + data.map_position.y*2 + int(data.map_position.x)%2
 	modulate.a = 0
+	$lbl_coord.text = str(data.map_position.x)+","+str(data.map_position.y)
+	create_tokens()
 
 func explore():
 	if data.is_explored: return
 	data.is_explored = true
 	visible = data.is_explored
 	Effector.appear(self)
+	yield(get_tree().create_timer(.2),"timeout")
+	for nt in $TokensContainer.get_children():
+		yield(get_tree().create_timer(.2),"timeout")
+		Effector.appear_from_up(nt)
 
 func generate_random_room():
 	randomize()
 	var types = ["empty","trap","chest","enemy"]
 	data.type = types[ randi()%types.size() ]
+	data.type = "empty"
 	data.dif = 5 + randi()%4
+	
+	data.tokens = []
+	for i in range(randi()%3+1):
+		data.tokens.append({"type":types[ randi()%types.size() ]})
 
 func damage_enemy():
 	DungeonManager.disable_input(.5)
@@ -78,3 +91,12 @@ func hide_all_elements():
 	$Enemy.visible = false
 	$Trap.visible = false
 
+func create_tokens():
+	for nt in $TokensContainer.get_children():
+		$TokensContainer.remove_child(nt)
+		nt.queue_free()
+	for t in data.tokens:
+		var nt = preload("res://gameNodes/roomToken.tscn").instance()
+		nt.data = t
+		nt.modulate.a = 0
+		$TokensContainer.add_child(nt)

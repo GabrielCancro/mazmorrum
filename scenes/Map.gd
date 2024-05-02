@@ -1,6 +1,6 @@
 extends Node2D
 
-var room_size = Vector2(350,250)
+var room_size = Vector2(600,600)
 func _ready():
 	create_level(1)
 
