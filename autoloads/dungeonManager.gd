@@ -13,9 +13,9 @@ signal update_player_data(player_data)
 # Called when the node enters the scene tree for the first time.
 func _initialize_dungeon_manager(_GAME):
 	GAME = _GAME
-	MAP = GAME.get_node("Map")
-	PLAYER_TOKEN = GAME.get_node("Map/PlayerToken")
-	CAMERA = PLAYER_TOKEN.get_node("Camera2D")
+	#MAP = GAME.get_node("Map")
+	#PLAYER_TOKEN = GAME.get_node("Map/PlayerToken")
+	#CAMERA = PLAYER_TOKEN.get_node("Camera2D")
 	UI = GAME.get_node("CL_UI")
 	damage_player(0)
 

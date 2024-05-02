@@ -7,7 +7,7 @@ func _ready():
 	DungeonManager._initialize_dungeon_manager(self)
 	RoomAction._initialize_room_action(self)
 	yield(get_tree().create_timer(.1),"timeout")
-	DungeonManager.move_player_to_room(DungeonManager.get_current_room())
+	#DungeonManager.move_player_to_room(DungeonManager.get_current_room())
 
 func _input(ev):
 	if !DungeonManager.ENABLED_INPUT: return

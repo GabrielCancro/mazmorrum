@@ -8,8 +8,8 @@ signal on_dices(result)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$lb_dices.visible = false
-	yield(get_tree().create_timer(.1),"timeout")
-	DungeonManager.MAP.try_explore_room(map_position.x,map_position.y)
+	#yield(get_tree().create_timer(.1),"timeout")
+	#DungeonManager.MAP.try_explore_room(map_position.x,map_position.y)
 
 func run_dices(opt={}):
 	randomize()

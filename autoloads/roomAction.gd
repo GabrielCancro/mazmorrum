@@ -3,7 +3,8 @@ extends Node
 var MAP
 
 func _initialize_room_action(GAME):
-	MAP = GAME.get_node("Map")
+	return
+	#MAP = GAME.get_node("Map")
 
 
 func on_enter_empty(room):

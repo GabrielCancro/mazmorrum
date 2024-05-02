@@ -1,8 +1,9 @@
 extends Node2D
 
 var room_size = Vector2(600,600)
-func _ready():
-	create_level(1)
+func _ready(): 
+	pass
+	#create_level(1)
 
 func create_level(lv):
 	for r in $Rooms.get_children():

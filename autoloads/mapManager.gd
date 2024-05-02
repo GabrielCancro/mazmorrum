@@ -8,6 +8,7 @@ var map_size = Vector2(10,8)
 func _initialize_map(_GAME):
 	GAME = _GAME
 	generate_map_data()
+	load_room(3,3)
 
 func generate_map_data():
 	map_tile = []
@@ -26,15 +27,13 @@ func get_room_data(x,y):
 func get_default_room_data(x,y):
 	return {
 		"is_explored":false,
-		"type":"empty",
-		"dif":8,
-		"hp":2,
 		"posX":x,
 		"posY":y,
 		"doors":{"up":true,"down":true,"left":true,"right":true},
+		"room_ref":null,
 		"tokens":[
-			{"type":"trap"},
-			{"type":"chest"}
+			{"type":"trap","pos":Vector2(650,430)},
+			{"type":"enemy","pos":Vector2(780,450)}
 		]
 	}
 
@@ -46,3 +45,5 @@ func load_room(x,y):
 	var new_room = preload("res://gameNodes/RoomFull.tscn").instance()
 	new_room.set_data( get_room_data(x,y) )
 	RoomContainer.add_child(new_room)
+	new_room.create_tokens()
+	print("ROOM DATA SETED ",new_room.data)
