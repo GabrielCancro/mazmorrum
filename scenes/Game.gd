@@ -1,13 +1,9 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MapManager._initialize_map(self)
 	DungeonManager._initialize_dungeon_manager(self)
 	RoomAction._initialize_room_action(self)
 	yield(get_tree().create_timer(.1),"timeout")
