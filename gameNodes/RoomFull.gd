@@ -27,3 +27,7 @@ func create_tokens():
 		if data.state == "ask":
 			Effector.appear(token_node)
 			yield(get_tree().create_timer(.4),"timeout")
+
+func update_token_actions(dices):
+	for tk in $Tokens.get_children():
+		tk.check_actions_requeriment(dices)

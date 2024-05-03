@@ -42,3 +42,11 @@ func on_door_click(code):
 	var next_room_data = MapManager.get_room_data( nextX, nextY )
 	if next_room_data: MapManager.load_room(nextX, nextY)
 	MINIMAP.update_minimap()
+
+func get_current_dices():
+	return GAME.get_node("DiceSet").results
+
+func consume_dices(dices_to_consume):
+	print("CONSUME DICES ",dices_to_consume)
+	for d in dices_to_consume:
+		GAME.get_node("DiceSet").consume_dice(d)

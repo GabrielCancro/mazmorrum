@@ -1,8 +1,8 @@
 extends Control
 
-var results
+var results = []
 var is_rolling = false
-signal end_roll
+signal end_roll(results)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,10 +13,19 @@ func roll_set():
 	is_rolling = true
 	results = []
 	for d in $Dices.get_children():
+		d.set_disabled(false)
 		d.roll()
 	yield(get_tree().create_timer(1.2),"timeout")
 	for d in $Dices.get_children():
 		results.append(d.value)
-	print("DICE SET ROLL: ",results)
+	#print("DICE SET ROLL: ",results)
 	is_rolling = false
-	emit_signal("end_roll")
+	emit_signal("end_roll",results)
+
+func consume_dice(dice):
+	for d in $Dices.get_children():
+		if d.value==dice && !d.get_disabled():
+			d.set_disabled(true)
+			results.erase(dice)
+			return
+	print(results)
