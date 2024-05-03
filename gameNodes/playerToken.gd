@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name PlayerToken
 
 var map_position = Vector2(0,0)

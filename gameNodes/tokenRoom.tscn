@@ -29,15 +29,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -72.5
-margin_top = -225.5
-margin_right = 72.5
-margin_bottom = -46.5
+margin_left = -50.0
+margin_top = -186.0
+margin_right = 50.0
+margin_bottom = -54.0
 alignment = 2
 
 [node name="Button" type="Button" parent="ActionsContainer"]
-margin_top = 148.0
-margin_right = 145.0
-margin_bottom = 179.0
+margin_top = 101.0
+margin_right = 100.0
+margin_bottom = 132.0
 custom_fonts/font = SubResource( 1 )
 text = "ACTION"

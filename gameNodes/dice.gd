@@ -1,22 +1,19 @@
 extends Control
 
 var faces = ["SW","SW","SW","AX","",""]
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var index = 0
+var value = ""
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$Button.connect("button_down",self,"roll")
+	pass
+	#$Button.connect("button_down",self,"roll")
 
 func roll():
-	var index = 0
 	for i in range(10):
-		$Label.text = "?"
-		yield(get_tree().create_timer(.05),"timeout")
+		$Label.text = "??"
 		index = randi()%faces.size() 
-		$Label.text = faces[index]
+		value = faces[index]
 		rect_rotation = rand_range(-10,10)
-		yield(get_tree().create_timer(.05),"timeout")
+		yield(get_tree().create_timer(.1),"timeout")
+	$Label.text = value
 	rect_rotation = 0

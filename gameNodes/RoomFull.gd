@@ -7,6 +7,12 @@ func _ready(): pass
 
 func set_data(room_data):
 	data = room_data
+	$doorU.connect("button_down",DungeonManager,"on_door_click",["U"])
+	$doorD.connect("button_down",DungeonManager,"on_door_click",["D"])
+	$doorR.connect("button_down",DungeonManager,"on_door_click",["R"])
+	$doorL.connect("button_down",DungeonManager,"on_door_click",["L"])
+	$Label.text = str(data.posX)+" , "+str(data.posY)
+	#if data.state == "ask": Effector.appear(self)
 
 func create_tokens():
 	print("CREATE TOKENS: ",data.tokens)
@@ -18,3 +24,6 @@ func create_tokens():
 		token_data.room_ref = self
 		token_node.set_data(token_data)
 		$Tokens.add_child(token_node)
+		if data.state == "ask":
+			Effector.appear(token_node)
+			yield(get_tree().create_timer(.4),"timeout")
