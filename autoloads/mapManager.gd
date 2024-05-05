@@ -35,7 +35,7 @@ func get_default_room_data(x,y):
 		"state":"unexplored", #unexplored, ask, danger, safe
 		"tokens":[
 			{"type":"trap","pos":Vector2(650,430)},
-			{"type":"enemy","pos":Vector2(780,450)}
+			{"type":"enemy","pos":Vector2(740,480)}
 		]
 	}
 
