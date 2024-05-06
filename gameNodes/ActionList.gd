@@ -29,6 +29,8 @@ func add_actions_to_list(tk):
 	if tk.actions.size()>0:
 		var ac = tk.actions[0]
 		new_btn.get_node("btn_action1/Label").text = ac.name
+		new_btn.get_node("btn_action1").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,true])
+		new_btn.get_node("btn_action1").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,false])
 		for rn in new_btn.get_node("btn_action1/HBoxReq").get_children():
 			if rn.get_index()>ac.req.size()-1: rn.visible = false
 			else: rn.texture = load("res://assets/dices/"+ac.req[rn.get_index()]+".png")
@@ -36,6 +38,8 @@ func add_actions_to_list(tk):
 	if tk.actions.size()>1:
 		var ac = tk.actions[1]
 		new_btn.get_node("btn_action2/Label").text = ac.name
+		new_btn.get_node("btn_action2").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,true])
+		new_btn.get_node("btn_action2").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,false])
 		for rn in new_btn.get_node("btn_action2/HBoxReq").get_children():
 			if rn.get_index()>ac.req.size()-1: rn.visible = false
 			else: rn.texture = load("res://assets/dices/"+ac.req[rn.get_index()]+".png")
@@ -48,7 +52,7 @@ func add_actions_to_list(tk):
 func on_hint_action(btn,tk,val):
 	if val: 
 		btn.modulate.b = .5
-		tk.token_ref.modulate.b = .5
+		if tk: tk.token_ref.modulate.b = .5
 	else: 
 		btn.modulate.b = 1
-		tk.token_ref.modulate.b = 1
+		if tk: tk.token_ref.modulate.b = 1
