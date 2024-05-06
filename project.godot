@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mazmorreum"
-run/main_scene="res://scenes/TestMapGeneration.tscn"
+run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]

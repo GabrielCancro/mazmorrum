@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://gameNodes/RoomFull.gd" type="Script" id=1]
-[ext_resource path="res://assets/room/room_iso_v1.png" type="Texture" id=2]
+[ext_resource path="res://assets/room/room_set.png" type="Texture" id=2]
 [ext_resource path="res://gameNodes/tokenRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/room/door_close_b.png" type="Texture" id=5]
+[ext_resource path="res://assets/room/door_close_a.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -26,11 +28,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -361.5
-margin_top = -280.5
-margin_right = 361.5
-margin_bottom = 280.5
+margin_left = -449.5
+margin_top = -381.0
+margin_right = 449.5
+margin_bottom = 317.0
 texture = ExtResource( 2 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 0.890196, 0.890196, 0.890196, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.0
+margin_top = -150.0
+margin_right = -114.0
+margin_bottom = 14.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color( 0.890196, 0.890196, 0.890196, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 125.0
+margin_top = -143.0
+margin_right = 229.0
+margin_bottom = 21.0
+texture = ExtResource( 6 )
 expand = true
 
 [node name="Label" type="Label" parent="."]
@@ -50,6 +78,10 @@ valign = 1
 [node name="Tokens" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
 
 [node name="tk_trap" parent="Tokens" instance=ExtResource( 3 )]
 anchor_left = 0.5
@@ -66,45 +98,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 106.0
-margin_top = -99.0
-margin_right = 160.0
-margin_bottom = -68.0
+margin_left = 162.0
+margin_top = -171.0
+margin_right = 216.0
+margin_bottom = -140.0
 custom_fonts/font = SubResource( 1 )
 text = "UP"
+flat = true
 
 [node name="doorD" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -172.0
-margin_top = 136.0
-margin_right = -118.0
-margin_bottom = 167.0
+margin_left = -212.0
+margin_top = 144.0
+margin_right = -126.0
+margin_bottom = 175.0
 custom_fonts/font = SubResource( 1 )
 text = "DOWN"
+flat = true
 
 [node name="doorR" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 154.0
-margin_top = 130.0
-margin_right = 208.0
-margin_bottom = 161.0
+margin_left = 138.0
+margin_top = 146.0
+margin_right = 223.0
+margin_bottom = 177.0
 custom_fonts/font = SubResource( 1 )
 text = "RIGHT"
+flat = true
 
 [node name="doorL" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -151.0
-margin_top = -79.0
-margin_right = -85.0
-margin_bottom = -48.0
+margin_left = -199.0
+margin_top = -175.0
+margin_right = -133.0
+margin_bottom = -144.0
 custom_fonts/font = SubResource( 1 )
 text = "LEFT"
+flat = true

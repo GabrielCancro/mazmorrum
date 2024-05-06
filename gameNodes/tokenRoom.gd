@@ -8,7 +8,10 @@ func set_data(_data):
 	$img_ref.visible = true
 	var img = load("res://gameNodes/tokenImages/img_"+data.type+".tscn").instance()
 	add_child_below_node($img_ref,img)
+	$img_ref.visible = false
 	data.actions = get_actions_by_type(data.type)
+	$MouseArea.connect("mouse_entered",self,"on_mouse_token",[true])
+	$MouseArea.connect("mouse_exited",self,"on_mouse_token",[false])
 	set_action_buttons()
 
 func get_actions_by_type(type):
@@ -24,8 +27,8 @@ func get_actions_by_type(type):
 	]
 
 func set_action_buttons():
-	var btn_action = $ActionsContainer/btn_action
-	$ActionsContainer.remove_child(btn_action)
+	var btn_action = $MouseArea/ActionsContainer/btn_action
+	$MouseArea/ActionsContainer.remove_child(btn_action)
 	var total_size = 0
 	for ac in data.actions:
 		var new_btn = btn_action.duplicate()
@@ -36,8 +39,8 @@ func set_action_buttons():
 		new_btn.connect("button_down",self,"on_action_click",[data,ac])
 		new_btn.connect("mouse_entered",self,"on_hint",[new_btn,ac.name,true])
 		new_btn.connect("mouse_exited",self,"on_hint",[new_btn,ac.name,false])
-		$ActionsContainer.add_child(new_btn)
-		$ActionsContainer.rect_position = get_node("token_image/up_point").position + Vector2(-$ActionsContainer.rect_size.x/2,-40)
+		$MouseArea/ActionsContainer.add_child(new_btn)
+		$MouseArea/ActionsContainer.rect_position = get_node("token_image/up_point").position + Vector2(-$MouseArea/ActionsContainer.rect_size.x/2,-40)
 
 func on_action_click(token_data,action_data):
 	var check_req = check_action_requeriment( DungeonManager.get_current_dices(), action_data)
@@ -55,7 +58,7 @@ func on_trap_disarm():
 	destroy_token()
 
 func destroy_token():
-	$ActionsContainer.visible = false
+	$MouseArea/ActionsContainer.visible = false
 	Effector.disappear(self)
 	data.room_ref.data.tokens.erase(data)
 	yield(get_tree().create_timer(.5),"timeout")
@@ -79,3 +82,9 @@ func on_hint(node,text,show):
 	$HintLabel.visible = show
 	if show: node.modulate = Color(.8,.8,1,1)
 	else: node.modulate = Color(1,1,1,1)
+
+func on_mouse_token(val):
+	$MouseArea/ActionsContainer.visible = val
+	$MouseArea/MouseAreaBig.visible = val
+	if val: get_node("token_image").modulate = Color(.8,.8,1,1)
+	else: get_node("token_image").modulate = Color(1,1,1,1)

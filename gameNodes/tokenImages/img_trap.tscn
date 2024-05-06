@@ -19,4 +19,4 @@ texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="up_point" type="Node2D" parent="."]
-position = Vector2( 0, -60 )
+position = Vector2( 0, -52 )
