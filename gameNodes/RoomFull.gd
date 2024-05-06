@@ -21,12 +21,11 @@ func create_tokens():
 		t.queue_free()
 	for token_data in data.tokens:
 		var token_node = preload("res://gameNodes/tokenRoom.tscn").instance()
-		token_data.room_ref = self
+		token_data["room_ref"] = self
+		token_data["token_ref"] = token_node
 		token_node.set_data(token_data)
 		$Tokens.add_child(token_node)
-		if data.state == "ask":
-			Effector.appear(token_node)
-			yield(get_tree().create_timer(.4),"timeout")
+		if data.state == "ask": Effector.appear(token_node)
 
 func update_token_actions(dices):
 	for tk in $Tokens.get_children():

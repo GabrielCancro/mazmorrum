@@ -54,6 +54,7 @@ func load_room(x,y):
 	update_room_exploration_state(x,y-1)
 	update_room_exploration_state(x+1,y)
 	update_room_exploration_state(x-1,y)
+	GAME.get_node("ActionList").fill_action_list()
 	print("ROOM DATA SETED ",new_room.data)
 
 func update_room_exploration_state(x,y):
