@@ -6,6 +6,7 @@ onready var btn_base = $VBox/action
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBox.remove_child(btn_base)
+	DungeonManager.connect("room_changed",self,"fill_action_list")
 
 func fill_action_list():
 	visible = false
@@ -29,6 +30,7 @@ func add_actions_to_list(tk):
 	if tk.actions.size()>0:
 		var ac = tk.actions[0]
 		new_btn.get_node("btn_action1/Label").text = ac.name
+		new_btn.get_node("btn_action1").connect("button_down",tk.token_ref,"on_action_click",[tk,ac])
 		new_btn.get_node("btn_action1").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,true])
 		new_btn.get_node("btn_action1").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,false])
 		for rn in new_btn.get_node("btn_action1/HBoxReq").get_children():
@@ -38,6 +40,7 @@ func add_actions_to_list(tk):
 	if tk.actions.size()>1:
 		var ac = tk.actions[1]
 		new_btn.get_node("btn_action2/Label").text = ac.name
+		new_btn.get_node("btn_action2").connect("button_down",tk.token_ref,"on_action_click",[tk,ac])
 		new_btn.get_node("btn_action2").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,true])
 		new_btn.get_node("btn_action2").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,false])
 		for rn in new_btn.get_node("btn_action2/HBoxReq").get_children():

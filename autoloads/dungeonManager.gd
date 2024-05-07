@@ -7,6 +7,7 @@ var current_player_index = 0
 var ENABLED_INPUT = true
 
 signal update_player_data(player_data)
+signal room_changed
 
 # Called when the node enters the scene tree for the first time.
 func _initialize_dungeon_manager(_GAME):

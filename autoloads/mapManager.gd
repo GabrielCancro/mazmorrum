@@ -35,24 +35,16 @@ func get_default_room_data(x,y):
 		"room_ref":null,
 		"state":"unexplored", #unexplored, ask, danger, safe
 		"tokens":[
-			{"type":"trap","pos":Vector2(650,430)},
-			{"type":"enemy","pos":Vector2(740,480)}
+			{"type":"trap","pos":Vector2(650,430),"is_dangerous":true},
+			{"type":"enemy","pos":Vector2(740,480),"is_dangerous":true}
 		]
 	}
 
 func load_room(x,y):
 	if current_room:
-		var start_pos = current_room.rect_position 
 		last_room_coord = Vector2(current_room.data.posX,current_room.data.posY)
-		Effector.disappear(current_room)
-		print(current_room.rect_position+Vector2(-x,-y)*200)
-		if last_room_coord:
-			var dir
-			if x>last_room_coord.x: dir = Vector2(-150,-150)
-			if x<last_room_coord.x: dir = Vector2(+150,+150)
-			if y>last_room_coord.y: dir = Vector2(+150,-150)
-			if y<last_room_coord.y: dir = Vector2(-150,+150)
-			Effector.move_to_rect_direction(current_room,dir)
+		Effector.map_room_out_fx(current_room,x,y)
+		GAME.get_node("ActionList").modulate.a = 0
 		yield(get_tree().create_timer(.35),"timeout")
 	var RoomContainer = GAME.get_node("RoomContainer")
 	for r in RoomContainer.get_children():
@@ -60,8 +52,8 @@ func load_room(x,y):
 		r.queue_free()
 	var new_room = preload("res://gameNodes/RoomFull.tscn").instance()
 	new_room.set_data( get_room_data(x,y) )
+	if last_room_coord: Effector.map_room_in_fx(new_room,x,y)
 	RoomContainer.add_child(new_room)
-	Effector.appear(new_room)
 	new_room.create_tokens()
 	current_room = new_room
 	update_room_exploration_state(x,y)
@@ -69,7 +61,7 @@ func load_room(x,y):
 	update_room_exploration_state(x,y-1)
 	update_room_exploration_state(x+1,y)
 	update_room_exploration_state(x-1,y)
-	GAME.get_node("ActionList").fill_action_list()
+	DungeonManager.emit_signal("room_changed")
 	print("ROOM DATA SETED ",new_room.data)
 
 func update_room_exploration_state(x,y):

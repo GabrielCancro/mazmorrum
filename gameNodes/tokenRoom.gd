@@ -13,7 +13,14 @@ func set_data(_data):
 	$MouseArea.connect("mouse_entered",self,"on_mouse_token",[true])
 	$MouseArea.connect("mouse_exited",self,"on_mouse_token",[false])
 	set_action_buttons()
+	update_visual_token()
 
+func update_visual_token():
+	if data.is_dangerous:
+		Effector.set_shader_outline(get_node("token_image/Image"),Color(1,0,0,1))
+	else: 
+		Effector.set_shader_outline(get_node("token_image/Image"))
+	
 func get_actions_by_type(type):
 	if type == "trap":
 		return [
@@ -53,14 +60,25 @@ func on_enemy_attack():
 	print("on_enemy_attack")
 	destroy_token()
 
+func on_enemy_evade():
+	print("on_enemy_evade")
+	data.is_dangerous = false
+	update_visual_token()
+
 func on_trap_disarm():
 	print("on_trap_disarm")
 	destroy_token()
 
+func on_trap_evade():
+	print("on_trap_evade")
+	data.is_dangerous = false
+	update_visual_token()
+	
 func destroy_token():
 	$MouseArea/ActionsContainer.visible = false
 	Effector.disappear(self)
 	data.room_ref.data.tokens.erase(data)
+	DungeonManager.emit_signal("room_changed")
 	yield(get_tree().create_timer(.5),"timeout")
 	print(data.room_ref.data)
 	queue_free()
