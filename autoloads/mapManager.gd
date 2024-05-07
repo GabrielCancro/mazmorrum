@@ -4,6 +4,7 @@ var GAME
 var map_tile
 var map_size = Vector2(10,8)
 var current_room
+var last_room_coord
 
 # Called when the node enters the scene tree for the first time.
 func _initialize_map(_GAME):
@@ -40,6 +41,19 @@ func get_default_room_data(x,y):
 	}
 
 func load_room(x,y):
+	if current_room:
+		var start_pos = current_room.rect_position 
+		last_room_coord = Vector2(current_room.data.posX,current_room.data.posY)
+		Effector.disappear(current_room)
+		print(current_room.rect_position+Vector2(-x,-y)*200)
+		if last_room_coord:
+			var dir
+			if x>last_room_coord.x: dir = Vector2(-150,-150)
+			if x<last_room_coord.x: dir = Vector2(+150,+150)
+			if y>last_room_coord.y: dir = Vector2(+150,-150)
+			if y<last_room_coord.y: dir = Vector2(-150,+150)
+			Effector.move_to_rect_direction(current_room,dir)
+		yield(get_tree().create_timer(.35),"timeout")
 	var RoomContainer = GAME.get_node("RoomContainer")
 	for r in RoomContainer.get_children():
 		RoomContainer.remove_child(r)
@@ -47,6 +61,7 @@ func load_room(x,y):
 	var new_room = preload("res://gameNodes/RoomFull.tscn").instance()
 	new_room.set_data( get_room_data(x,y) )
 	RoomContainer.add_child(new_room)
+	Effector.appear(new_room)
 	new_room.create_tokens()
 	current_room = new_room
 	update_room_exploration_state(x,y)

@@ -12,6 +12,10 @@ func move_to(node,pos):
 	tween.interpolate_property(node,"position",node.position,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
+func move_to_rect_direction(node,dir):
+	tween.interpolate_property(node,"rect_global_position",node.rect_global_position,node.rect_global_position+dir,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()
+
 func move_yoyo(node,pos):
 	var start = node.position
 	tween.interpolate_property(node,"position",start,pos,.2,Tween.TRANS_QUAD,Tween.EASE_IN)
