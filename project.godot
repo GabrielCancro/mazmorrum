@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mazmorreum"
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scenes/TestMapGeneration.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -31,6 +31,7 @@ DungeonManager="*res://autoloads/dungeonManager.gd"
 DataManager="*res://autoloads/dataManager.gd"
 RoomAction="*res://autoloads/roomAction.gd"
 MapManager="*res://autoloads/mapManager.gd"
+MapGenerator="*res://autoloads/mapGenerator.gd"
 
 [display]
 
