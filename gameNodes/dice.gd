@@ -6,6 +6,7 @@ var value = ""
 var is_disabled
 
 func _ready():
+	$TextureRect.texture = null
 	pass
 	#$Button.connect("button_down",self,"roll")
 

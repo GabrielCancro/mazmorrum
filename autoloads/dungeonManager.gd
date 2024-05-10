@@ -51,3 +51,8 @@ func consume_dices(dices_to_consume):
 	print("CONSUME DICES ",dices_to_consume)
 	for d in dices_to_consume:
 		GAME.get_node("DiceSet").consume_dice(d)
+
+func restore_dices(dices_to_consume):
+	print("RESTORE DICES ",dices_to_consume)
+	for d in dices_to_consume:
+		GAME.get_node("DiceSet").restore_dice(d)

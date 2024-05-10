@@ -50,11 +50,8 @@ func set_action_buttons():
 		$MouseArea/ActionsContainer.rect_position = get_node("token_image/up_point").position + Vector2(-$MouseArea/ActionsContainer.rect_size.x/2,-40)
 
 func on_action_click(token_data,action_data):
-	var check_req = check_action_requeriment( DungeonManager.get_current_dices(), action_data)
-	if check_req:
-		DungeonManager.consume_dices(action_data.req)
-		if has_method("on_"+token_data.type+"_"+action_data.name):
-			call("on_"+token_data.type+"_"+action_data.name)
+	if has_method("on_"+token_data.type+"_"+action_data.name):
+		call("on_"+token_data.type+"_"+action_data.name)
 	
 func on_enemy_attack():
 	print("on_enemy_attack")
@@ -82,17 +79,6 @@ func destroy_token():
 	yield(get_tree().create_timer(.5),"timeout")
 	print(data.room_ref.data)
 	queue_free()
-
-func check_action_requeriment(dices,action):
-	var dices_count = {}
-	for d in dices: 
-		if !d in dices_count: dices_count[d] = 0
-		dices_count[d] += 1
-	for r in action.req:
-		if !r in dices_count: return false
-		if dices_count[r] <= 0: return false
-		else: dices_count[r] -= 1
-	return true
 
 func on_hint(node,text,show):
 	$HintLabel.text = text

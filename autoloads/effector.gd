@@ -73,4 +73,17 @@ func set_shader_outline(node,color=null):
 	if color:
 		node.material = preload("res://shaders/outline.tres").duplicate()
 		(node.material as ShaderMaterial).set_shader_param("line_color",color)
-	
+
+func add_float_text(tx,ox,oy):
+	var node = load("res://gameNodes/effects/FloatText.tscn").instance()
+	node.rect_position = Vector2(1280*ox, 720*oy)
+	node.set_text(tx)
+	DungeonManager.GAME.add_child(node)
+
+func add_hint(node_area,node_showed):
+	node_showed.visible = false
+	node_area.connect("mouse_entered",self,"on_hint_action",[node_showed,true])
+	node_area.connect("mouse_exited",self,"on_hint_action",[node_showed,false])
+
+func on_hint_action(node,val):
+	node.visible = val

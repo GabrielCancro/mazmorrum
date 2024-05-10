@@ -29,3 +29,11 @@ func consume_dice(dice):
 			results.erase(dice)
 			return
 	print(results)
+
+func restore_dice(dice):
+	for d in $Dices.get_children():
+		if d.value==dice && d.get_disabled():
+			d.set_disabled(false)
+			results.append(dice)
+			return
+	print(results)

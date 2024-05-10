@@ -1,11 +1,9 @@
 extends Control
 
 var tokens = []
-onready var btn_base = $VBox/action
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBox.remove_child(btn_base)
 	DungeonManager.connect("room_changed",self,"fill_action_list")
 
 func fill_action_list():
@@ -16,41 +14,13 @@ func fill_action_list():
 	yield(get_tree().create_timer(.2),"timeout")
 	tokens = MapManager.current_room.data.tokens
 	for tk in tokens:
-		add_actions_to_list(tk)
+		var action_line = load("res://gameNodes/ActionLine.tscn").instance()
+		action_line.set_token_data(tk)
+		$VBox.add_child(action_line)
 	yield(get_tree().create_timer(.1),"timeout")
 	Effector.appear(self)
 	visible = true
 
-func add_actions_to_list(tk):
-	var new_btn = btn_base.duplicate()
-	new_btn.get_node("Label").text = tk.type.to_upper()
-	new_btn.connect("mouse_entered",self,"on_hint_action",[new_btn,tk,true])
-	new_btn.connect("mouse_exited",self,"on_hint_action",[new_btn,tk,false])
-
-	if tk.actions.size()>0:
-		var ac = tk.actions[0]
-		new_btn.get_node("btn_action1/Label").text = ac.name
-		new_btn.get_node("btn_action1").connect("button_down",tk.token_ref,"on_action_click",[tk,ac])
-		new_btn.get_node("btn_action1").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,true])
-		new_btn.get_node("btn_action1").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action1"),false,false])
-		for rn in new_btn.get_node("btn_action1/HBoxReq").get_children():
-			if rn.get_index()>ac.req.size()-1: rn.visible = false
-			else: rn.texture = load("res://assets/dices/"+ac.req[rn.get_index()]+".png")
-	
-	if tk.actions.size()>1:
-		var ac = tk.actions[1]
-		new_btn.get_node("btn_action2/Label").text = ac.name
-		new_btn.get_node("btn_action2").connect("button_down",tk.token_ref,"on_action_click",[tk,ac])
-		new_btn.get_node("btn_action2").connect("mouse_entered",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,true])
-		new_btn.get_node("btn_action2").connect("mouse_exited",self,"on_hint_action",[new_btn.get_node("btn_action2"),false,false])
-		for rn in new_btn.get_node("btn_action2/HBoxReq").get_children():
-			if rn.get_index()>ac.req.size()-1: rn.visible = false
-			else: rn.texture = load("res://assets/dices/"+ac.req[rn.get_index()]+".png")
-	else: new_btn.get_node("btn_action2").visible = false
-		#new_btn.connect("button_down",self,"on_action_click",[data,ac])
-		#new_btn.connect("mouse_entered",self,"on_hint_action",[new_btn,tk,ac,true])
-		#new_btn.connect("mouse_exited",self,"on_hint_action",[new_btn,tk,ac,false])
-	$VBox.add_child(new_btn)
 
 func on_hint_action(btn,tk,val):
 	if val: 
@@ -59,3 +29,5 @@ func on_hint_action(btn,tk,val):
 	else: 
 		btn.modulate.b = 1
 		if tk: tk.token_ref.modulate.b = 1
+
+
