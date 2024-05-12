@@ -62,7 +62,7 @@ func set_shader_outline(node,color=null):
 		(node.material as ShaderMaterial).set_shader_param("line_color",color)
 
 func add_float_text(tx,ox,oy):
-	var node = load("res://gameNodes/effects/FloatText.tscn").instance()
+	var node = preload("res://gameNodes/effects/FloatText.tscn").instance()
 	node.rect_position = Vector2(1280*ox, 720*oy)
 	node.set_text(tx)
 	DungeonManager.GAME.add_child(node)
@@ -74,3 +74,17 @@ func add_hint(node_area,node_showed):
 
 func on_hint_action(node,val):
 	node.visible = val
+
+var current_hint_text_node = null
+var hint_text = preload("res://gameNodes/HintText.tscn").instance()
+func add_hint_text(node,text_code):
+	get_node("/GAME").add_child(hint_text)
+	node.connect("mouse_entered",self,"on_hint_action",[node,text_code,true])
+	node.connect("mouse_exited",self,"on_hint_action",[node,text_code,false])
+	
+func on_hint_text(node,txcode,val):
+	if !val && current_hint_text_node==node: 
+		hint_text.visible = false
+		current_hint_text_node = null
+	else:
+		node.visible = true

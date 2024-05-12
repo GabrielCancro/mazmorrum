@@ -3,7 +3,6 @@ extends Control
 var data
 
 func _ready(): pass
-	
 
 func set_data(room_data):
 	data = room_data
