@@ -35,8 +35,14 @@ func get_default_room_data(x,y):
 		"room_ref":null,
 		"state":"unexplored", #unexplored, ask, danger, safe
 		"tokens":[
-			{"type":"trap","pos":Vector2(650,430),"is_dangerous":true},
-			{"type":"enemy","pos":Vector2(740,480),"is_dangerous":true}
+			{"type":"trap","is_dangerous":true, "actions":[
+				{"name":"disarm","req":["HN","HN"],"used":false},
+				{"name":"evade","req":["BT","BT"],"used":false}
+			]},
+			{"type":"enemy","is_dangerous":true, "actions":[
+				{"name":"attack","req":["SW","SW"],"used":false},
+				{"name":"evade","req":["BT","BT"],"used":false}
+			]}
 		]
 	}
 
@@ -44,7 +50,7 @@ func load_room(x,y):
 	if current_room:
 		last_room_coord = Vector2(current_room.data.posX,current_room.data.posY)
 		Effector.map_room_out_fx(current_room,x,y)
-		GAME.get_node("ActionList").modulate.a = 0
+	#	GAME.get_node("ActionList").modulate.a = 0
 		yield(get_tree().create_timer(.35),"timeout")
 	var RoomContainer = GAME.get_node("RoomContainer")
 	for r in RoomContainer.get_children():

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://gameNodes/ActionLine.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gameNodes/ActionList.gd" type="Script" id=3]
+[ext_resource path="res://gameNodes/OLD_NODES/ActionList.gd" type="Script" id=1]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://gameNodes/OLD_NODES/ActionLine.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=4]
 size = 22
@@ -10,12 +10,12 @@ outline_size = 5
 outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 extra_spacing_top = -4
 extra_spacing_bottom = -4
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="ActionList" type="Control"]
 margin_right = 106.0
 margin_bottom = 40.0
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -23,7 +23,7 @@ anchor_bottom = 1.0
 custom_constants/separation = 25
 alignment = 1
 
-[node name="ActionLine" parent="VBox" instance=ExtResource( 2 )]
+[node name="ActionLine" parent="VBox" instance=ExtResource( 3 )]
 
 [node name="HintLabel" type="Label" parent="."]
 visible = false

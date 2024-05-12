@@ -3,8 +3,9 @@
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/dices/SW.png" type="Texture" id=2]
 [ext_resource path="res://assets/action_bg.png" type="Texture" id=3]
-[ext_resource path="res://gameNodes/ActionLine.gd" type="Script" id=4]
+[ext_resource path="res://gameNodes/OLD_NODES/ActionLine.gd" type="Script" id=4]
 [ext_resource path="res://assets/light.png" type="Texture" id=5]
+
 
 [sub_resource type="DynamicFont" id=6]
 size = 28

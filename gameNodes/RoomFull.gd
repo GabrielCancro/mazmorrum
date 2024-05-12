@@ -20,7 +20,7 @@ func create_tokens():
 		$Tokens.remove_child(t)
 		t.queue_free()
 	for token_data in data.tokens:
-		var token_node = preload("res://gameNodes/tokenRoom.tscn").instance()
+		var token_node = preload("res://gameNodes/CardRoom.tscn").instance()
 		token_data["room_ref"] = self
 		token_data["token_ref"] = token_node
 		token_node.set_data(token_data)

@@ -32,6 +32,7 @@ DataManager="*res://autoloads/dataManager.gd"
 RoomAction="*res://autoloads/roomAction.gd"
 MapManager="*res://autoloads/mapManager.gd"
 MapGenerator="*res://autoloads/mapGenerator.gd"
+Utils="*res://autoloads/utils.gd"
 
 [display]
 

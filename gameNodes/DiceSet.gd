@@ -13,18 +13,18 @@ func roll_set():
 	is_rolling = true
 	results = []
 	for d in $Dices.get_children():
-		d.set_disabled(false)
+		if d.is_disabled(): continue
 		d.roll()
 	yield(get_tree().create_timer(1.2),"timeout")
 	for d in $Dices.get_children():
-		results.append(d.value)
+		if !d.is_disabled(): results.append(d.value)
 	#print("DICE SET ROLL: ",results)
 	is_rolling = false
 	emit_signal("end_roll",results)
 
 func consume_dice(dice):
 	for d in $Dices.get_children():
-		if d.value==dice && !d.get_disabled():
+		if d.value==dice && !d.is_disabled():
 			d.set_disabled(true)
 			results.erase(dice)
 			return
@@ -32,7 +32,7 @@ func consume_dice(dice):
 
 func restore_dice(dice):
 	for d in $Dices.get_children():
-		if d.value==dice && d.get_disabled():
+		if d.value==dice && d.is_disabled():
 			d.set_disabled(false)
 			results.append(dice)
 			return

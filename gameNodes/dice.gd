@@ -28,5 +28,5 @@ func set_disabled(val):
 	if is_disabled: modulate.a = .5
 	else: modulate.a = 1
 
-func get_disabled():
+func is_disabled():
 	return is_disabled

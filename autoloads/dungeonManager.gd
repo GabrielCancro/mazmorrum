@@ -47,12 +47,11 @@ func on_door_click(code):
 func get_current_dices():
 	return GAME.get_node("DiceSet").results
 
-func consume_dices(dices_to_consume):
-	print("CONSUME DICES ",dices_to_consume)
-	for d in dices_to_consume:
-		GAME.get_node("DiceSet").consume_dice(d)
+func check_have_dice(dc):
+	return GAME.get_node("DiceSet").results.find(dc)!=-1
 
-func restore_dices(dices_to_consume):
-	print("RESTORE DICES ",dices_to_consume)
-	for d in dices_to_consume:
-		GAME.get_node("DiceSet").restore_dice(d)
+func consume_dice(dc):
+	GAME.get_node("DiceSet").consume_dice(dc)
+
+func restore_dices(dc):
+	GAME.get_node("DiceSet").restore_dice(dc)

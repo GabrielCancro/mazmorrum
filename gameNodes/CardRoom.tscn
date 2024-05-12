@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameNodes/CardRoom.gd" type="Script" id=1]
+[ext_resource path="res://assets/room/tk_trap.png" type="Texture" id=2]
+[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gameNodes/ActionCardLine.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+extra_spacing_top = -4
+extra_spacing_bottom = -4
+font_data = ExtResource( 3 )
+
+[node name="CardRoom" type="Control"]
+rect_min_size = Vector2( 400, 300 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.333333, 0.396078, 0.52549, 1 )
+
+[node name="img" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -98.0
+margin_right = 50.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 70, 45 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+
+[node name="lb_name" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 4 )
+text = "ENEMY"
+align = 1
+valign = 1
+
+[node name="Actions" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -2.0
+margin_right = 182.0
+margin_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="ActionCardLine" parent="Actions" instance=ExtResource( 4 )]
+margin_right = 180.0
+
+[node name="ActionCardLine2" parent="Actions" instance=ExtResource( 4 )]
+margin_left = 184.0
+margin_right = 364.0
+
+[node name="ActionCardLine3" parent="Actions" instance=ExtResource( 4 )]
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 144.0
+
+[node name="ActionCardLine4" parent="Actions" instance=ExtResource( 4 )]
+margin_left = 184.0
+margin_top = 74.0
+margin_right = 364.0
+margin_bottom = 144.0
