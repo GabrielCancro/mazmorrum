@@ -6,9 +6,7 @@ var value = ""
 var is_disabled
 
 func _ready():
-	$TextureRect.texture = null
-	pass
-	#$Button.connect("button_down",self,"roll")
+	reset()
 
 func roll():
 	for i in range(10):
@@ -22,6 +20,12 @@ func roll():
 	$Label.text = value
 	$TextureRect.texture = load("res://assets/dices/"+value+".png")
 	rect_rotation = 0
+
+func reset():
+	$TextureRect.texture = null
+	value = ""
+	rect_rotation = 0
+	set_disabled(false)
 
 func set_disabled(val):
 	is_disabled = val

@@ -6,9 +6,8 @@ signal end_action
 
 func run_action(card):
 	current_card = card
-	Effector.from_scale(card.card_ref)
-	Effector.from_color(card.card_ref,Color(1,1,0,1))
-	
+	Effector.resalt_card(card.card_ref)
+	yield(get_tree().create_timer(.5),"timeout")
 	var method = "ac_"+card.type+"_"
 	print("ASSIGNED ",card.action_asigned)
 	if card.action_asigned != null:
@@ -21,6 +20,8 @@ func run_action(card):
 	print("ACTION TO CALL: ",method)
 	if has_method(method): call(method)
 	yield(get_tree().create_timer(.75),"timeout")
+	Effector.unresalt_card(card.card_ref)
+	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_action")
 
 func ac_enemy_evade():

@@ -39,3 +39,5 @@ func on_end_turn():
 	for card in MapManager.current_room.data.tokens:
 		CardManager.run_action(card)
 		yield(CardManager,"end_action")
+	yield(get_tree().create_timer(.5),"timeout")
+	$DiceSet.reset_set()

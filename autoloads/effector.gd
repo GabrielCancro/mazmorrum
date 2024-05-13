@@ -96,3 +96,13 @@ func on_hint_text(node,txcode,val):
 		current_hint_text_node = null
 	else:
 		node.visible = true
+
+func resalt_card(node):
+	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,0,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()
+
+func unresalt_card(node):
+	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()

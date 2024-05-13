@@ -8,6 +8,9 @@ signal end_roll(results)
 func _ready():
 	$Button.connect("button_down",self,"roll_set")
 
+func reset_set():
+	for d in $Dices.get_children(): d.reset()
+
 func roll_set():
 	if is_rolling: return
 	is_rolling = true
