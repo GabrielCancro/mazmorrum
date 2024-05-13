@@ -37,6 +37,5 @@ func _input(ev):
 func on_end_turn():
 	yield(get_tree().create_timer(.5),"timeout")
 	for card in MapManager.current_room.data.tokens:
-		Effector.from_scale(card.card_ref)
-		Effector.from_color(card.card_ref,Color(1,1,0,1))
-		yield(get_tree().create_timer(.75),"timeout")
+		CardManager.run_action(card)
+		yield(CardManager,"end_action")

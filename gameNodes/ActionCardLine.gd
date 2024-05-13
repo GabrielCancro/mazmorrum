@@ -46,3 +46,9 @@ func set_dice_asigned(index,val):
 	for req in action_reqs:
 		if req.asigned == false: is_all_asigned = false
 	print("IS ALL ASIGNED ",is_all_asigned)
+	if is_all_asigned: token_data.action_asigned = action_index
+	
+func clear_action():
+	print("CLEAR")
+	for index in action_reqs.size():
+		set_dice_asigned(index,false)

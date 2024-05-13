@@ -73,3 +73,6 @@ func on_mouse_token(val):
 	$MouseArea/MouseAreaBig.visible = val
 	if val: get_node("token_image").modulate = Color(.8,.8,1,1)
 	else: get_node("token_image").modulate = Color(1,1,1,1)
+
+func clear_asigned_action():
+	$Actions.get_child(data.action_asigned).clear_action()

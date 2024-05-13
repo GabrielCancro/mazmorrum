@@ -38,11 +38,11 @@ func get_default_room_data(x,y):
 			{"type":"trap","is_dangerous":true, "actions":[
 				{"name":"disarm","req":["HN","HN"],"used":false},
 				{"name":"evade","req":["BT","BT"],"used":false}
-			]},
+			],"action_asigned":null},
 			{"type":"enemy","is_dangerous":true, "actions":[
 				{"name":"attack","req":["SW","SW"],"used":false},
 				{"name":"evade","req":["BT","BT"],"used":false}
-			]}
+			],"action_asigned":null}
 		]
 	}
 
