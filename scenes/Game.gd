@@ -6,6 +6,7 @@ func _ready():
 	MapManager._initialize_map(self)
 	DungeonManager._initialize_dungeon_manager(self)
 	RoomAction._initialize_room_action(self)
+	$Button.connect("button_down",self,"on_end_turn")
 	yield(get_tree().create_timer(.1),"timeout")
 	#DungeonManager.move_player_to_room(DungeonManager.get_current_room())
 
@@ -32,3 +33,10 @@ func _input(ev):
 			else:
 				print("NO ACTION ON_ENTER TO ROOM "+room.data.type)
 				DungeonManager.move_player_to_room(room)
+
+func on_end_turn():
+	yield(get_tree().create_timer(.5),"timeout")
+	for card in MapManager.current_room.data.tokens:
+		Effector.from_scale(card.card_ref)
+		Effector.from_color(card.card_ref,Color(1,1,0,1))
+		yield(get_tree().create_timer(.75),"timeout")

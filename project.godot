@@ -34,6 +34,7 @@ MapManager="*res://autoloads/mapManager.gd"
 MapGenerator="*res://autoloads/mapGenerator.gd"
 Utils="*res://autoloads/utils.gd"
 Lang="*res://autoloads/lang.gd"
+CardManager="*res://autoloads/CardManager.gd"
 
 [display]
 

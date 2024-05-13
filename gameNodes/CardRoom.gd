@@ -4,6 +4,7 @@ var data
 
 func set_data(_data):
 	data = _data
+	data["card_ref"] = self
 	#rect_position = data.pos
 	#$img_ref.visible = true
 	#var img = load("res://gameNodes/tokenImages/img_"+data.type+".tscn").instance()

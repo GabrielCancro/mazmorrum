@@ -12,7 +12,10 @@ extra_spacing_bottom = -4
 font_data = ExtResource( 3 )
 
 [node name="CardRoom" type="Control"]
+margin_right = 400.0
+margin_bottom = 300.0
 rect_min_size = Vector2( 400, 300 )
+rect_pivot_offset = Vector2( 198, 148 )
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

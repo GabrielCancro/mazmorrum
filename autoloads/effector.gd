@@ -28,6 +28,14 @@ func appear(node):
 	tween.interpolate_property(node,"modulate",Color(1,1,1,0),Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()
 
+func from_scale(node):
+	tween.interpolate_property(node,"rect_scale",Vector2(1.2,1.2),Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()
+
+func from_color(node,color):
+	tween.interpolate_property(node,"modulate",color,Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()
+
 func appear_from_up(node):
 	node.modulate.a = 0
 	node.visible = true
