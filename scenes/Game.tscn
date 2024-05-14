@@ -122,7 +122,3 @@ custom_fonts/font = SubResource( 2 )
 text = "END"
 
 [node name="HintText" parent="." instance=ExtResource( 7 )]
-margin_left = 10.0
-margin_top = 19.0
-margin_right = 394.0
-margin_bottom = 138.0

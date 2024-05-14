@@ -6,7 +6,7 @@ var data
 func set_data(_data):
 	data = _data
 	data["card_ref"] = self
-	Effector.add_hint_text(self,"ESTA CARTA ES "+data.type)
+	Effector.add_hint_text($HintArea,"card_desc_"+data.type)
 	set_action_lines()
 	update_visual_token()
 

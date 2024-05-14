@@ -9,6 +9,10 @@ func _initialize_effector(SCENE):
 	add_child(tween)
 	GAME.get_node("HintText").visible = false
 
+func _process(delta):
+	if GAME.get_node_or_null("HintText") && GAME.get_node("HintText").visible:
+		GAME.get_node("HintText").rect_global_position = get_viewport().get_mouse_position() + Vector2(10,20)
+
 func move_to(node,pos):
 	tween.interpolate_property(node,"position",node.position,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
@@ -86,8 +90,8 @@ func on_hint_action(node,val):
 
 var current_hint_text_node
 func add_hint_text(node,text_code):
-	node.connect("mouse_entered",self,"on_hint_action",[node,text_code,true])
-	node.connect("mouse_exited",self,"on_hint_action",[node,text_code,false])
+	node.connect("mouse_entered",self,"on_hint_text",[node,text_code,true])
+	node.connect("mouse_exited",self,"on_hint_text",[node,text_code,false])
 	
 func on_hint_text(node,txcode,val):
 	if !val && current_hint_text_node==node: 
@@ -95,7 +99,7 @@ func on_hint_text(node,txcode,val):
 		current_hint_text_node = null
 	else:
 		current_hint_text_node = node
-		GAME.get_node("HintText/Label").text = txcode
+		GAME.get_node("HintText/Label").text = Lang.get_string(txcode)
 		GAME.get_node("HintText").visible = true
 
 func resalt_card(node):
