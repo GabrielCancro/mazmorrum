@@ -34,16 +34,7 @@ func get_default_room_data(x,y):
 		"doors":{"up":true,"down":true,"left":true,"right":true},
 		"room_ref":null,
 		"state":"unexplored", #unexplored, ask, danger, safe
-		"tokens":[
-			{"type":"trap","is_dangerous":true, "actions":[
-				{"name":"disarm","req":["HN","HN"],"used":false},
-				{"name":"evade","req":["BT","BT"],"used":false}
-			],"action_asigned":null},
-			{"type":"enemy","is_dangerous":true, "actions":[
-				{"name":"attack","req":["SW","SW"],"used":false},
-				{"name":"evade","req":["BT","BT"],"used":false}
-			],"action_asigned":null}
-		]
+		"tokens": CardManager.get_four_random_cards()
 	}
 
 func load_room(x,y):

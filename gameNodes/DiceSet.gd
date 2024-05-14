@@ -9,6 +9,7 @@ func _ready():
 	$Button.connect("button_down",self,"roll_set")
 
 func reset_set():
+	results = []
 	for d in $Dices.get_children(): d.reset()
 
 func roll_set():

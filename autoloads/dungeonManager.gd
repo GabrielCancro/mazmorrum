@@ -27,9 +27,7 @@ func disable_input(time):
 func damage_player(dam=1):
 	var pdata = DataManager.get_current_player_data()
 	pdata.hp -= 1
-	GAME.get_node("BG_DAMAGE").visible = true
-	GAME.get_node("BG_DAMAGE").modulate.a = .5
-	Effector.disappear(GAME.get_node("BG_DAMAGE"))
+	if dam>0: Effector.shake(PLAYER_TOKEN,5)
 	emit_signal("update_player_data",pdata)
 
 func on_door_click(code):

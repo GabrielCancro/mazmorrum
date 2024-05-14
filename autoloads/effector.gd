@@ -1,12 +1,13 @@
 extends Node
 
 onready var tween = Tween.new()
-
+var GAME
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _initialize_effector(SCENE):
+	GAME = SCENE
 	add_child(tween)
-
+	GAME.get_node("HintText").visible = false
 
 func move_to(node,pos):
 	tween.interpolate_property(node,"position",node.position,pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
@@ -83,26 +84,38 @@ func add_hint(node_area,node_showed):
 func on_hint_action(node,val):
 	node.visible = val
 
-var current_hint_text_node = null
-var hint_text = preload("res://gameNodes/HintText.tscn").instance()
+var current_hint_text_node
 func add_hint_text(node,text_code):
-	get_node("/GAME").add_child(hint_text)
 	node.connect("mouse_entered",self,"on_hint_action",[node,text_code,true])
 	node.connect("mouse_exited",self,"on_hint_action",[node,text_code,false])
 	
 func on_hint_text(node,txcode,val):
 	if !val && current_hint_text_node==node: 
-		hint_text.visible = false
+		GAME.get_node("HintText").visible = false
 		current_hint_text_node = null
 	else:
-		node.visible = true
+		current_hint_text_node = node
+		GAME.get_node("HintText/Label").text = txcode
+		GAME.get_node("HintText").visible = true
 
 func resalt_card(node):
+	if !is_instance_valid(node): return
 	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,0,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func unresalt_card(node):
+	if !is_instance_valid(node): return
 	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()
+
+func shake(node,power=2,time=.5):
+	var ini_pos = node.rect_position
+	randomize()
+	while time>0:
+		if !is_instance_valid(node): return
+		node.rect_position = ini_pos + Vector2(rand_range(-power,power),rand_range(-power/2,power/2))
+		time -= .025
+		yield(get_tree().create_timer(.025),"timeout")
+	node.rect_position = ini_pos

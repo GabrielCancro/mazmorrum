@@ -16,6 +16,7 @@ margin_right = 400.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 400, 300 )
 rect_pivot_offset = Vector2( 198, 148 )
+mouse_default_cursor_shape = 13
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Control",
+"class": "CardRoom",
+"language": "GDScript",
+"path": "res://gameNodes/CardRoom.gd"
+}, {
+"base": "Control",
 "class": "PlayerToken",
 "language": "GDScript",
 "path": "res://gameNodes/playerToken.gd"
 } ]
 _global_script_class_icons={
+"CardRoom": "",
 "PlayerToken": ""
 }
 
