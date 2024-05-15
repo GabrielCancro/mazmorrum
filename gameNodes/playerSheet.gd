@@ -12,9 +12,12 @@ func _ready():
 
 func update_player(data):
 	for h in $HBoxContainer.get_children():
-		if h.get_index() < data.hp: h.modulate.a = 1
+		if h.get_index() >= data.hpm: h.modulate.a = 0
+		elif h.get_index() < data.hp: h.modulate.a = 1
 		else: h.modulate.a = .3
 	$Retrait/TextureRect.texture = load("res://assets/retraits/retrait"+str(data.retrait)+".jpg")
+	$Label.text = "HP: "+str(data.hp)+" / "+str(data.hpm)+"\n"
+	$Label.text += "MV: "+str(data.mv)+" / "+str(data.mvm)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

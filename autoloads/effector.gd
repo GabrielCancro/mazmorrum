@@ -74,10 +74,10 @@ func set_shader_outline(node,color=null):
 		node.material = preload("res://shaders/outline.tres").duplicate()
 		(node.material as ShaderMaterial).set_shader_param("line_color",color)
 
-func add_float_text(tx,ox,oy):
+func add_float_text(txcode,ox,oy):
 	var node = preload("res://gameNodes/effects/FloatText.tscn").instance()
 	node.rect_position = Vector2(1280*ox, 720*oy)
-	node.set_text(tx)
+	node.set_text(Lang.get_string(txcode))
 	DungeonManager.GAME.add_child(node)
 
 func add_hint(node_area,node_showed):

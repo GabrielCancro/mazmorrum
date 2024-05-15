@@ -3,8 +3,7 @@ extends Control
 var tokens = []
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	DungeonManager.connect("room_changed",self,"fill_action_list")
+func _ready(): pass
 
 func fill_action_list():
 	visible = false

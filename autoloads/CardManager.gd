@@ -10,8 +10,8 @@ var CARD_BASIC_DATA = {
 				{"name":"evade","req":["BT","BT"]}
 			]},
 	"enemy": {"is_dangerous":true, "actions":[
-				{"name":"attack","req":["SW","SW"],"used":false},
-				{"name":"evade","req":["BT",],"used":false}
+				{"name":"attack","req":["SW","SW"]},
+				{"name":"evade","req":["BT",]}
 			]},
 }
 
@@ -27,7 +27,7 @@ func get_four_random_cards():
 	var cards = []
 	var keys = CARD_BASIC_DATA.keys()
 	for i in range(4):
-		if randi()%100 < 30: cards.append(null)
+		if randi()%100 < 50: cards.append(null)
 		else: cards.append( get_card_data( keys[randi()%keys.size()] ) )
 	return cards
 
@@ -53,5 +53,6 @@ func ac_enemy_none(): PlayerManager.damage_player()
 func ac_enemy_attack(): current_card.card_ref.destroy_card()
 func ac_enemy_evade(): pass
 
-func ac_trap_disarm():
-	current_card.card_ref.destroy_card()
+func ac_trap_none(): PlayerManager.damage_player()
+func ac_trap_disarm(): current_card.card_ref.destroy_card()
+func ac_enemy_evade(): pass

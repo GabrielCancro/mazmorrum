@@ -12,10 +12,10 @@ extra_spacing_bottom = -4
 font_data = ExtResource( 3 )
 
 [node name="CardRoom" type="Control"]
-margin_right = 400.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 400, 300 )
-rect_pivot_offset = Vector2( 198, 148 )
+margin_right = 350.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 350, 180 )
+rect_pivot_offset = Vector2( 175, 90 )
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -28,10 +28,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -50.0
-margin_top = -98.0
-margin_right = 50.0
-margin_bottom = 2.0
+margin_left = -164.0
+margin_top = -39.0
+margin_right = -25.0
+margin_bottom = 80.0
 rect_pivot_offset = Vector2( 70, 45 )
 mouse_filter = 2
 texture = ExtResource( 2 )
@@ -39,53 +39,48 @@ expand = true
 stretch_mode = 4
 
 [node name="lb_name" type="Label" parent="."]
-anchor_right = 1.0
+margin_left = 1.0
+margin_right = 162.0
 margin_bottom = 58.0
 custom_fonts/font = SubResource( 4 )
 text = "ENEMY"
 align = 1
 valign = 1
 
-[node name="lb_info" type="Label" parent="."]
-anchor_right = 1.0
-margin_right = -344.0
-margin_bottom = 58.0
-custom_fonts/font = SubResource( 4 )
-text = "i"
-align = 1
-valign = 1
-
 [node name="HintArea" type="Control" parent="."]
-margin_right = 53.0
-margin_bottom = 55.0
+margin_left = 15.0
+margin_top = 12.0
+margin_right = 155.0
+margin_bottom = 154.0
 
 [node name="Actions" type="GridContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -182.0
-margin_top = -2.0
-margin_right = 182.0
-margin_bottom = 142.0
+margin_left = -14.0
+margin_top = -72.0
+margin_right = 166.0
+margin_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
 
 [node name="ActionCardLine" parent="Actions" instance=ExtResource( 4 )]
 margin_right = 180.0
 
 [node name="ActionCardLine2" parent="Actions" instance=ExtResource( 4 )]
-margin_left = 184.0
-margin_right = 364.0
-
-[node name="ActionCardLine3" parent="Actions" instance=ExtResource( 4 )]
 margin_top = 74.0
 margin_right = 180.0
 margin_bottom = 144.0
 
+[node name="ActionCardLine3" parent="Actions" instance=ExtResource( 4 )]
+visible = false
+margin_top = 148.0
+margin_right = 180.0
+margin_bottom = 218.0
+
 [node name="ActionCardLine4" parent="Actions" instance=ExtResource( 4 )]
-margin_left = 184.0
-margin_top = 74.0
-margin_right = 364.0
-margin_bottom = 144.0
+visible = false
+margin_top = 222.0
+margin_right = 180.0
+margin_bottom = 292.0

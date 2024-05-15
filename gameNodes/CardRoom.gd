@@ -24,7 +24,6 @@ func destroy_card():
 	Effector.disappear(self)
 	var index = MapManager.current_room.data.tokens.find(data)
 	MapManager.current_room.data.tokens[index] = null
-	DungeonManager.emit_signal("room_changed")
 	yield(get_tree().create_timer(.5),"timeout")
 	queue_free()
 

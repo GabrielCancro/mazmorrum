@@ -75,7 +75,6 @@ func destroy_token():
 	$MouseArea/ActionsContainer.visible = false
 	Effector.disappear(self)
 	data.room_ref.data.tokens.erase(data)
-	DungeonManager.emit_signal("room_changed")
 	yield(get_tree().create_timer(.5),"timeout")
 	print(data.room_ref.data)
 	queue_free()

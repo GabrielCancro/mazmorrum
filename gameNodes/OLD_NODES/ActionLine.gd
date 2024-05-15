@@ -37,7 +37,7 @@ func on_action_click(ac_btn,index):
 			DungeonManager.consume_dices(ac.req)
 			select_action(index)
 		else:
-			Effector.add_float_text("NO TIENES DADOS!",.5,.2)
+			Effector.add_float_text("wr_no_dice",.5,.2)
 	else:
 		select_action(0)
 		DungeonManager.restore_dices(ac.req)

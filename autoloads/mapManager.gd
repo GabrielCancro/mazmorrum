@@ -2,45 +2,28 @@ extends Node
 
 var GAME
 var MINIMAP
-var map_tile
-var map_size = Vector2(10,8)
+var map
 var current_room
 var last_room_coord
+
+signal load_new_room(room_data)
 
 # Called when the node enters the scene tree for the first time.
 func _initialize_map(_GAME):
 	GAME = _GAME
 	MINIMAP = GAME.get_node("Minimap")
-	generate_map_data()
-	load_current_player_room()
+	generate_map(1)
 
-func generate_map_data():
-	map_tile = []
-	for y in range(map_size.y):
-		var row = []
-		for x in range(map_size.x):
-			var room_data = get_default_room_data(x,y)
-			row.append(room_data)
-		map_tile.append(row)
+func generate_map(lvl):
+	map = MapGenerator.generate_new_map(6+lvl*2)
 
 func get_room_data(x,y):
-	if x<0 or x>map_size.x-1: return null
-	if y<0 or y>map_size.y-1: return null
-	return map_tile[y][x]
+	var room_key = "room_"+str(x)+"_"+str(y)
+	if room_key in map: return map[room_key]
+	else: return null
 
 func get_current_room_data():
 	return current_room.data
-
-func get_default_room_data(x,y):
-	return {
-		"is_explored":false,
-		"posX":x,
-		"posY":y,
-		"doors":{"up":true,"down":true,"left":true,"right":true},
-		"room_ref":null,
-		"state":"unexplored", #unexplored, ask, danger, safe
-		"tokens": CardManager.get_four_random_cards()
-	}
 
 func load_room(x,y):
 	if current_room:
@@ -63,10 +46,7 @@ func load_room(x,y):
 	update_room_exploration_state(x,y-1)
 	update_room_exploration_state(x+1,y)
 	update_room_exploration_state(x-1,y)
-	DungeonManager.emit_signal("room_changed")
-	MINIMAP.update_minimap()
-	PlayerManager.set_player_tokens()
-	print("ROOM DATA SETED ",new_room.data)
+	emit_signal("load_new_room",new_room.data)
 
 func load_current_player_room():
 	var nextX = PlayerManager.get_player_data().posX

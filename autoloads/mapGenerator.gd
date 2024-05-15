@@ -44,7 +44,11 @@ func create_new_room(x,y):
 		"posX":x,
 		"posY":y,
 		"doors":{"up":(randi()%100<percent_of_door),"down":(randi()%100<percent_of_door),"left":(randi()%100<percent_of_door),"right":(randi()%100<percent_of_door)},
-		"is_creted_in_last_step":true
+		"is_creted_in_last_step":true,
+		"is_explored":false,
+		"room_ref":null,
+		"state":"unexplored", #unexplored, ask, danger, safe
+		"tokens": CardManager.get_four_random_cards()
 	}
 	if x==0 && y==0: room_data.doors = {"up":true,"down":true,"left":true,"right":true}
 	map["room_"+str(x)+"_"+str(y)] = room_data

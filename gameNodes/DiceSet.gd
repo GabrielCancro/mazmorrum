@@ -13,6 +13,7 @@ func reset_set():
 	for d in $Dices.get_children(): d.reset()
 
 func roll_set():
+	PlayerManager.player_data_inc("mv",-99)
 	if is_rolling: return
 	is_rolling = true
 	results = []

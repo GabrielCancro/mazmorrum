@@ -13,7 +13,7 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -900.0
-margin_bottom = -450.0
+margin_bottom = -570.0
 rect_min_size = Vector2( 300, 150 )
 script = ExtResource( 4 )
 
@@ -93,6 +93,30 @@ expand = true
 [node name="H6" type="TextureRect" parent="HBoxContainer"]
 margin_left = 110.0
 margin_right = 135.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="H7" type="TextureRect" parent="HBoxContainer"]
+margin_left = 132.0
+margin_right = 157.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="H8" type="TextureRect" parent="HBoxContainer"]
+margin_left = 154.0
+margin_right = 179.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="H9" type="TextureRect" parent="HBoxContainer"]
+margin_left = 176.0
+margin_right = 201.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
 texture = ExtResource( 3 )
