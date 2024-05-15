@@ -55,4 +55,4 @@ func ac_enemy_evade(): pass
 
 func ac_trap_none(): PlayerManager.damage_player()
 func ac_trap_disarm(): current_card.card_ref.destroy_card()
-func ac_enemy_evade(): pass
+func ac_trap_evade(): pass
