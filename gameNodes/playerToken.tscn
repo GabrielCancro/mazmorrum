@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/circle_token_white.png" type="Texture" id=1]
 [ext_resource path="res://assets/token_retrait1.png" type="Texture" id=2]
 [ext_resource path="res://gameNodes/playerToken.gd" type="Script" id=3]
-[ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-outline_size = 3
-outline_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-font_data = ExtResource( 4 )
 
 [node name="PlayerToken" type="Control"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 script = ExtResource( 3 )
 
 [node name="Outline" type="TextureRect" parent="."]
@@ -38,18 +34,3 @@ margin_right = 50.0
 margin_bottom = 50.0
 texture = ExtResource( 2 )
 expand = true
-
-[node name="lb_dices" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -58.5
-margin_top = -60.5
-margin_right = 58.5
-margin_bottom = -9.5
-custom_colors/font_color = Color( 0.384314, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "7+4"
-align = 1
-valign = 1

@@ -49,7 +49,7 @@ func run_action(card):
 	yield(get_tree().create_timer(.5),"timeout")
 	emit_signal("end_action")
 
-func ac_enemy_none(): DungeonManager.damage_player()
+func ac_enemy_none(): PlayerManager.damage_player()
 func ac_enemy_attack(): current_card.card_ref.destroy_card()
 func ac_enemy_evade(): pass
 

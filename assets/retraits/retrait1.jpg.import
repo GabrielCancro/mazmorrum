@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/token_retrait1.png-d6130f7c8fadba7697a553128f395426.stex"
+path="res://.import/retrait1.jpg-40bc1d78070fb8072fc094bc010b46aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/token_retrait1.png"
-dest_files=[ "res://.import/token_retrait1.png-d6130f7c8fadba7697a553128f395426.stex" ]
+source_file="res://assets/retraits/retrait1.jpg"
+dest_files=[ "res://.import/retrait1.jpg-40bc1d78070fb8072fc094bc010b46aa.stex" ]
 
 [params]
 

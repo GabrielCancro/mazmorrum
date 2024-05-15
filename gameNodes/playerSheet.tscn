@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/retrait1.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/retraits/retrait1.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/heart_m.png" type="Texture" id=3]
 [ext_resource path="res://gameNodes/playerSheet.gd" type="Script" id=4]
