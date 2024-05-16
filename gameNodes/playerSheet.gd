@@ -18,6 +18,7 @@ func update_player(data):
 	$Retrait/TextureRect.texture = load("res://assets/retraits/retrait"+str(data.retrait)+".jpg")
 	$Label.text = "HP: "+str(data.hp)+" / "+str(data.hpm)+"\n"
 	$Label.text += "MV: "+str(data.mv)+" / "+str(data.mvm)
+	print("ITEMS: ",data.items)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

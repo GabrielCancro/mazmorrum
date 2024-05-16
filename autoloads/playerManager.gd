@@ -5,8 +5,8 @@ var PLAYER_TOKENS_CONTAINER
 var PLAYER_TOKEN:PlayerToken
 var current_player_index = 0
 var players = [
-		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0},
-		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0}
+		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[]},
+		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[]}
 	]
 
 signal update_player_data(player_data)
@@ -16,6 +16,7 @@ func _initialize_player_manager(_GAME):
 	PLAYER_TOKENS_CONTAINER = GAME.get_node("PlayerTokens")
 	MapManager.connect("load_new_room",self,"set_player_tokens")
 	set_current_player(current_player_index)
+	add_item_to_player("sword1")
 	
 func get_player_data(index = current_player_index):
 	return players[current_player_index]
@@ -65,3 +66,11 @@ func set_player_tokens(room_data):
 func check_player_in_current_room(player_data):
 	return( player_data.posX == MapManager.get_current_room_data().posX
 		&& player_data.posY == MapManager.get_current_room_data().posY )
+
+func add_item_to_player(item_code):
+	var pdata = get_player_data()
+	if pdata.items.size()>=6:
+		Effector.add_float_text("wr_many_items",.5,.75)
+	else:
+		pdata.items.append( ItemManager.get_item_data(item_code) )
+		emit_signal("update_player_data",pdata)
