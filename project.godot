@@ -34,7 +34,6 @@ config/icon="res://icon.png"
 
 Effector="*res://autoloads/effector.gd"
 DungeonManager="*res://autoloads/dungeonManager.gd"
-RoomAction="*res://autoloads/roomAction.gd"
 MapManager="*res://autoloads/mapManager.gd"
 MapGenerator="*res://autoloads/mapGenerator.gd"
 Utils="*res://autoloads/utils.gd"

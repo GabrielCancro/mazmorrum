@@ -5,8 +5,8 @@ var PLAYER_TOKENS_CONTAINER
 var PLAYER_TOKEN:PlayerToken
 var current_player_index = 0
 var players = [
-		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[]},
-		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[]}
+		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null]},
+		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null]}
 	]
 
 signal update_player_data(player_data)
@@ -69,8 +69,9 @@ func check_player_in_current_room(player_data):
 
 func add_item_to_player(item_code):
 	var pdata = get_player_data()
-	if pdata.items.size()>=6:
-		Effector.add_float_text("wr_many_items",.5,.75)
-	else:
-		pdata.items.append( ItemManager.get_item_data(item_code) )
-		emit_signal("update_player_data",pdata)
+	for i in range(pdata.items.size()):
+		if pdata.items[i]==null:
+			pdata.items[i] = ItemManager.get_item_data(item_code)
+			emit_signal("update_player_data",pdata)
+			return
+	Effector.add_float_text("wr_many_items",.5,.75)

@@ -207,9 +207,9 @@ expand = true
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -316.0
-margin_top = -166.0
+margin_top = -382.0
 margin_right = -16.0
-margin_bottom = -16.0
+margin_bottom = -232.0
 
 [node name="BG_DAMAGE" type="ColorRect" parent="."]
 visible = false

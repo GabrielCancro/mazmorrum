@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/retraits/retrait1.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,11 +9,15 @@
 size = 24
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
 [node name="PlayerSheet" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -900.0
-margin_bottom = -570.0
+margin_right = -939.0
+margin_bottom = -562.0
 rect_min_size = Vector2( 300, 150 )
 script = ExtResource( 4 )
 
@@ -131,3 +135,60 @@ custom_fonts/font = SubResource( 1 )
 text = "FUERZA: +0
 AGILIDAD: +2
 MENTE: +2"
+
+[node name="Items" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = 89.0
+margin_right = 145.0
+margin_bottom = 199.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 3
+
+[node name="IT1" type="Button" parent="Items"]
+margin_right = 90.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "my item"
+
+[node name="IT2" type="Button" parent="Items"]
+margin_left = 100.0
+margin_right = 190.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
+
+[node name="IT3" type="Button" parent="Items"]
+margin_left = 200.0
+margin_right = 290.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
+
+[node name="IT4" type="Button" parent="Items"]
+margin_top = 60.0
+margin_right = 90.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
+
+[node name="IT5" type="Button" parent="Items"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 190.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
+
+[node name="IT6" type="Button" parent="Items"]
+margin_left = 200.0
+margin_top = 60.0
+margin_right = 290.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 90, 50 )
+custom_fonts/font = SubResource( 2 )
