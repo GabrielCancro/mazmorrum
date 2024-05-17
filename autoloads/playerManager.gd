@@ -17,6 +17,8 @@ func _initialize_player_manager(_GAME):
 	MapManager.connect("load_new_room",self,"set_player_tokens")
 	set_current_player(current_player_index)
 	add_item_to_player("sword1")
+	add_item_to_player("shield1")
+	add_item_to_player("potion1")
 	
 func get_player_data(index = current_player_index):
 	return players[current_player_index]

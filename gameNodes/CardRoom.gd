@@ -7,6 +7,7 @@ func set_data(_data):
 	data = _data
 	data["card_ref"] = self
 	Effector.add_hint_text($HintArea,"card_desc_"+data.type)
+	$img.texture = load("res://assets/room/tk_"+data.type+".png")
 	set_action_lines()
 	update_visual_token()
 

@@ -34,7 +34,7 @@ func on_req_click(rn_node):
 			set_dice_asigned(index,true)
 			DungeonManager.consume_dice(action_reqs[index].type)
 		else:
-			Effector.add_float_text("NO TIENES DADOS!",.5,.2)
+			Effector.add_float_text("wr_no_dice",.5,.2)
 	else:
 		set_dice_asigned(index,false)
 		DungeonManager.restore_dices(action_reqs[index].type)

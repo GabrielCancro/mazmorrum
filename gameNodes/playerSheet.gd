@@ -9,6 +9,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerManager.connect("update_player_data",self,"update_player")
+	for it in $Items.get_children(): 
+		(it as Button).connect("button_down",self,"on_click_item",[it.get_index()])
+		#var item_data = PlayerManager.get_player_data().items[it.get_index()]
+		#if item_data: Effector.add_hint_text(it,"item_"+item_data.code)
+	
 
 func update_player(data):
 	for h in $HBoxContainer.get_children():
@@ -23,5 +28,13 @@ func update_player(data):
 func fill_items(data):
 	for it in $Items.get_children():
 		var i = it.get_index()
-		if data.items[i] == null: it.text = ""
-		else: it.text = data.items[i].name
+		if data.items[i] == null: 
+			it.text = ""
+			it.get_node("TextureRect").texture = null
+		else: 
+			it.text = data.items[i].name
+			it.get_node("TextureRect").texture = load("res://assets/items/"+data.items[i].ico+".png")
+
+func on_click_item(item_index):
+	var item_data = PlayerManager.get_player_data().items[item_index]
+	print(item_index,"-",item_data)
