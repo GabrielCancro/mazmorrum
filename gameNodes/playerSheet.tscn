@@ -138,6 +138,20 @@ text = "FUERZA: +0
 AGILIDAD: +2
 MENTE: +2"
 
+[node name="ItemInfo" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0470588, 0.0431373, 0.0666667, 0.980392 )
+
+[node name="Label" type="Label" parent="ItemInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "ITEM INFO"
+align = 1
+valign = 1
+
 [node name="Dices" type="GridContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
