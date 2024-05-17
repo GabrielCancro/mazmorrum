@@ -24,6 +24,7 @@ func update_player(data):
 	$Label.text = "HP: "+str(data.hp)+" / "+str(data.hpm)+"\n"
 	$Label.text += "MV: "+str(data.mv)+" / "+str(data.mvm)+"\n"
 	fill_items(data)
+	fill_dices(data)
 
 func fill_items(data):
 	for it in $Items.get_children():
@@ -35,6 +36,14 @@ func fill_items(data):
 			it.text = data.items[i].name
 			it.get_node("TextureRect").texture = load("res://assets/items/"+data.items[i].ico+".png")
 
+func fill_dices(data):
+	for it in $Dices.get_children():
+		var i = it.get_index()
+		if data.dices[i] == null:
+			it.get_node("TextureRect").texture = null
+		else: 
+			it.get_node("TextureRect").texture = load("res://assets/dices/AX.png")
+			
 func on_click_item(item_index):
 	var item_data = PlayerManager.get_player_data().items[item_index]
 	print(item_index,"-",item_data)

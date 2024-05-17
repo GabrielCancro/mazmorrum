@@ -5,8 +5,8 @@ var PLAYER_TOKENS_CONTAINER
 var PLAYER_TOKEN:PlayerToken
 var current_player_index = 0
 var players = [
-		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null]},
-		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null]}
+		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]},
+		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]}
 	]
 
 signal update_player_data(player_data)
