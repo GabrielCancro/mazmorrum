@@ -23,6 +23,7 @@ func update_player(data):
 	$Retrait/TextureRect.texture = load("res://assets/retraits/retrait"+str(data.retrait)+".jpg")
 	$Label.text = "HP: "+str(data.hp)+" / "+str(data.hpm)+"\n"
 	$Label.text += "MV: "+str(data.mv)+" / "+str(data.mvm)+"\n"
+	$Label.text += "ROLLS: "+str(data.rl)+" / "+str(data.rlm)+"\n"
 	fill_items(data)
 	fill_dices(data)
 

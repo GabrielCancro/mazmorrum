@@ -17,13 +17,18 @@ func _initialize_dice_manager(_GAME):
 func get_dice_faces(dice_type):
 	return dice_types[dice_type]
 
-func get_have_dice_node(dc):
-	var index = GAME.get_node("DiceSet").results.find(dc)
-	if index == -1: return null
-	else: return DICE_NODES[index]
+func get_dice_node_of_type(dc_type):
+	for dn in DICE_NODES:
+		if dn.is_disabled: continue
+		if dn.value==dc_type: return dn
+	return null
 
 func consume_dice(dc_node):
-	DICE_SET.consume_dice(dc_node)
+	if !dc_node.is_disabled: dc_node.set_disabled(true)
 
 func restore_dice_by_type(dc_type):
-	DICE_SET.restore_dice_by_type(dc_type)
+	for dn in DICE_NODES:
+		if !dn.is_disabled(): continue
+		if dn.value==dc_type:
+			dn.set_disabled(false)
+			break

@@ -28,6 +28,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.454902, 0.533333, 0.698039, 1 )
 
+[node name="ActiveColor" type="ColorRect" parent="."]
+visible = false
+anchor_bottom = 1.0
+margin_right = 5.0
+color = Color( 0.980392, 1, 0.686275, 1 )
+
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_top = 1.0

@@ -17,10 +17,7 @@ func disable_input(time):
 	GAME.get_node("BG_INPUT").visible = false
 
 func on_door_click(code):
-	if PlayerManager.get_player_data().mv<=0: 
-		Effector.add_float_text("wr_no_movement",.5,.25)
-	else: 
-		PlayerManager.player_data_inc("mv",-1)
+	if PlayerManager.player_data_inc("mv",-1): 
 		var nextX = MapManager.current_room.data.posX
 		var nextY = MapManager.current_room.data.posY
 		if code=="up": nextY -= 1
@@ -32,7 +29,5 @@ func on_door_click(code):
 			PlayerManager.get_player_data().posX = nextX
 			PlayerManager.get_player_data().posY = nextY
 			MapManager.load_current_player_room()
-
-func get_current_dices():
-	return GAME.get_node("DiceSet").results
-
+	else:
+		Effector.add_float_text("wr_no_movement",.5,.25)

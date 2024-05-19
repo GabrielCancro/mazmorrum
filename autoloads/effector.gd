@@ -111,14 +111,20 @@ func on_hint_text(node,txcode,val):
 func resalt_card(node):
 	if !is_instance_valid(node): return
 	node.get_node("ResaltNode").visible = true
-	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	var img = node.get_node("img")
+	tween.interpolate_property(img,"rect_scale",img.rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func unresalt_card(node):
 	if !is_instance_valid(node): return
 	node.get_node("ResaltNode").visible = false
-	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
-	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	var img = node.get_node("img")
+	tween.interpolate_property(img,"rect_scale",img.rect_scale,Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()
+
+func resalt_action(node):
+	if !is_instance_valid(node): return
+	tween.interpolate_property(node,"modulate",Color(1,1,0,1),Color(1,1,1,1),.5,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func shake(node,power=2,time=.5):

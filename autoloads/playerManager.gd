@@ -5,8 +5,8 @@ var PLAYER_TOKENS_CONTAINER
 var PLAYER_TOKEN:PlayerToken
 var current_player_index = 0
 var players = [
-		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]},
-		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]}
+		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"rl":2,"rlm":2,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]},
+		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"rl":2,"rlm":2,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]}
 	]
 
 signal update_player_data(player_data)
@@ -26,10 +26,14 @@ func get_player_data(index = current_player_index):
 func player_data_inc(k,v):
 	var player_data = get_player_data()
 	player_data[k] += v
-	if player_data[k]<0: player_data[k] = 0
+	if player_data[k]<0: 
+		player_data[k] = 0
+		return false
 	if k=="hp" && player_data["hp"]>player_data["hpm"]: player_data["hp"] = player_data["hpm"]
 	if k=="mv" && player_data["mv"]>player_data["mvm"]: player_data["mv"] = player_data["mvm"]
+	if k=="rl" && player_data["rl"]>player_data["rlm"]: player_data["rl"] = player_data["mvm"]
 	emit_signal("update_player_data",player_data)
+	return true
 
 func player_data_set(k,v):
 	var player_data = get_player_data()

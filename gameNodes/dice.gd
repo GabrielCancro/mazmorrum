@@ -17,11 +17,13 @@ func roll():
 		$TextureRect.texture = null
 		index = randi()%faces.size() 
 		value = faces[index]
-		$TextureRect.texture = load("res://assets/dices/"+value+".png")
+		if value: $TextureRect.texture = load("res://assets/dices/"+value+".png")
+		else: $TextureRect.texture = null
 		rect_rotation = rand_range(-10,10)
 		yield(get_tree().create_timer(.1),"timeout")
 	$Label.text = value
-	$TextureRect.texture = load("res://assets/dices/"+value+".png")
+	if value: $TextureRect.texture = load("res://assets/dices/"+value+".png")
+	else: $TextureRect.texture = null
 	rect_rotation = 0
 
 func reset():

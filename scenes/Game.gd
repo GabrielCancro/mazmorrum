@@ -24,7 +24,6 @@ func on_end_turn():
 	yield(get_tree().create_timer(.5),"timeout")
 	for card in MapManager.current_room.data.tokens:
 		if !card: continue
-		print("RUN ACTION ",card.type)
 		CardManager.run_action(card)
 		yield(CardManager,"end_all_actions")
 		yield(get_tree().create_timer(.2),"timeout")
@@ -32,6 +31,7 @@ func on_end_turn():
 	$DiceSet.reset_set()
 	PlayerManager.set_next_player()
 	PlayerManager.player_data_inc("mv",99)
+	PlayerManager.player_data_inc("rl",99)
 	MapManager.load_current_player_room()
 
 func set_door_buttons(room_data):
@@ -41,4 +41,3 @@ func set_door_buttons(room_data):
 		if connecting_buttons:
 			door_buttons_connected = true
 			get_node("Doors/door_"+k).connect("button_down",DungeonManager,"on_door_click",[k])
-		

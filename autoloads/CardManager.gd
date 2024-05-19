@@ -1,6 +1,7 @@
 extends Node
 
 var current_card
+var actions_to_run = []
 signal end_all_actions
 
 var CARD_BASIC_DATA = {
@@ -15,7 +16,7 @@ var CARD_BASIC_DATA = {
 }
 
 func get_card_data(type):
-	var data = CARD_BASIC_DATA[type].duplicate()
+	var data = CARD_BASIC_DATA[type].duplicate(true)
 	data["type"] = type
 	for ac in data["actions"]: 
 		ac["all_req_assigned"] = false
@@ -34,6 +35,7 @@ func get_four_random_cards():
 
 func run_action(card):
 	current_card = card
+	print("RUN ACTION ",current_card.token_index,".",current_card.type)
 	Effector.resalt_card(card.card_ref)
 	yield(get_tree().create_timer(.5),"timeout")
 	for ac in card.actions: 
@@ -42,17 +44,18 @@ func run_action(card):
 			print("_____",action_method)
 			if has_method(action_method): call(action_method)
 			else: print("NO HAY METHODO PARA LA ACCION ",action_method)
-			#Effector.move_yoyo_rect(ac.ref_node,ac.ref_node.rect_position+Vector2(20,0))
-			Effector.add_float_text(action_method,0.5,0.25)
+			Effector.move_yoyo_rect(ac.action_ref,ac.action_ref.rect_position+Vector2(20,0))
+			#Effector.add_float_text(action_method,0.5,0.25)
+			Effector.resalt_action(ac.action_ref)
 			yield(get_tree().create_timer(1),"timeout")
 	var card_method = "resolve_"+card.type
 	print("========",card_method)
 	if has_method(card_method): call(card_method)
 	else: print("NO HAY METHODO PARA LA ACCION ",card_method)
-	card.card_ref.clear_asigned_actions()
-	yield(get_tree().create_timer(.75),"timeout")
+	##card.card_ref.clear_asigned_actions()
+	yield(get_tree().create_timer(.1),"timeout")
 	Effector.unresalt_card(card.card_ref)
-	yield(get_tree().create_timer(.5),"timeout")
+	yield(get_tree().create_timer(.1),"timeout")
 	emit_signal("end_all_actions")
 
 ####ENEMY
@@ -68,7 +71,7 @@ func resolve_enemy():
 
 func ac_trap_disarm(): 
 	current_card["is_disarmed"] = true
-	Effector.shake(current_card.card_ref.get_node("img"))
+	#Effector.shake(current_card.card_ref.get_node("img"))
 func ac_trap_evade(): current_card["is_evaded"] = true
 func resolve_trap():
 	if "is_disarmed" in current_card: current_card.card_ref.destroy_card()
