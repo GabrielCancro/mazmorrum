@@ -27,6 +27,12 @@ func move_yoyo(node,pos):
 	tween.interpolate_property(node,"position",pos,start,.2,Tween.TRANS_QUAD,Tween.EASE_OUT,.2)
 	tween.start()
 
+func move_yoyo_rect(node,pos):
+	var start = node.rect_position
+	tween.interpolate_property(node,"rect_position",start,pos,.2,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.interpolate_property(node,"rect_position",pos,start,.2,Tween.TRANS_QUAD,Tween.EASE_OUT,.2)
+	tween.start()
+
 func appear(node):
 	node.modulate.a = 0
 	node.visible = true
@@ -104,12 +110,13 @@ func on_hint_text(node,txcode,val):
 
 func resalt_card(node):
 	if !is_instance_valid(node): return
+	node.get_node("ResaltNode").visible = true
 	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1.2,1.2),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
-	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,0,1),.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
 	tween.start()
 
 func unresalt_card(node):
 	if !is_instance_valid(node): return
+	node.get_node("ResaltNode").visible = false
 	tween.interpolate_property(node,"rect_scale",node.rect_scale,Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.interpolate_property(node,"modulate",node.modulate,Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()

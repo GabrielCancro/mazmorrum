@@ -41,6 +41,7 @@ Lang="*res://autoloads/lang.gd"
 CardManager="*res://autoloads/cardManager.gd"
 PlayerManager="*res://autoloads/playerManager.gd"
 ItemManager="*res://autoloads/itemManager.gd"
+DiceManager="*res://autoloads/diceManager.gd"
 
 [display]
 

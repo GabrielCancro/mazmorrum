@@ -6,6 +6,7 @@ func _ready():
 	PlayerManager._initialize_player_manager(self)
 	Effector._initialize_effector(self)
 	MapManager._initialize_map(self)
+	DiceManager._initialize_dice_manager(self)
 	MapManager.connect("load_new_room",self,"set_door_buttons")
 	DungeonManager._initialize_dungeon_manager(self)
 	$Button.connect("button_down",self,"on_end_turn")
@@ -25,7 +26,8 @@ func on_end_turn():
 		if !card: continue
 		print("RUN ACTION ",card.type)
 		CardManager.run_action(card)
-		yield(CardManager,"end_action")
+		yield(CardManager,"end_all_actions")
+		yield(get_tree().create_timer(.2),"timeout")
 	yield(get_tree().create_timer(.5),"timeout")
 	$DiceSet.reset_set()
 	PlayerManager.set_next_player()

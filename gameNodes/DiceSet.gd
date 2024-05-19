@@ -27,18 +27,19 @@ func roll_set():
 	is_rolling = false
 	emit_signal("end_roll",results)
 
-func consume_dice(dice):
+func consume_dice(dice_node):
+	if dice_node.is_disabled: return
+	dice_node.set_disabled(true)
+	results[dice_node.get_index()] = null
+	print(results)
+
+func restore_dice_by_type(dice_type):
 	for d in $Dices.get_children():
-		if d.value==dice && !d.is_disabled():
-			d.set_disabled(true)
-			results.erase(dice)
+		if d.value==dice_type && d.is_disabled():
+			d.set_disabled(false)
+			results[d.get_index()] = d.value
 			return
 	print(results)
 
-func restore_dice(dice):
-	for d in $Dices.get_children():
-		if d.value==dice && d.is_disabled():
-			d.set_disabled(false)
-			results.append(dice)
-			return
-	print(results)
+func get_dice_nodes():
+	return $Dices.get_children()

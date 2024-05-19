@@ -1,14 +1,17 @@
 extends Control
 
-var faces = ["SW","SW","HN","BT","",""]
 var index = 0
+var type = "basic"
 var value = ""
+var start_pos
 var is_disabled
 
 func _ready():
+	start_pos = rect_global_position
 	reset()
 
 func roll():
+	var faces = DiceManager.get_dice_faces(type)
 	for i in range(10):
 		$Label.text = "??"
 		$TextureRect.texture = null

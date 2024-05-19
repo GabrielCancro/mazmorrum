@@ -36,11 +36,3 @@ func on_door_click(code):
 func get_current_dices():
 	return GAME.get_node("DiceSet").results
 
-func check_have_dice(dc):
-	return GAME.get_node("DiceSet").results.find(dc)!=-1
-
-func consume_dice(dc):
-	GAME.get_node("DiceSet").consume_dice(dc)
-
-func restore_dices(dc):
-	GAME.get_node("DiceSet").restore_dice(dc)
