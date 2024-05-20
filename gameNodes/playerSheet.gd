@@ -16,7 +16,7 @@ func _ready():
 	
 
 func update_player(data):
-	for h in $HBoxContainer.get_children():
+	for h in $HPContainer.get_children():
 		if h.get_index() >= data.hpm: h.modulate.a = 0
 		elif h.get_index() < data.hp: h.modulate.a = 1
 		else: h.modulate.a = .3

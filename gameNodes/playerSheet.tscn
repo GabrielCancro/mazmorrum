@@ -18,9 +18,8 @@ font_data = ExtResource( 2 )
 [node name="PlayerSheet" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -939.0
-margin_bottom = -562.0
-rect_min_size = Vector2( 300, 150 )
+margin_right = -1004.0
+margin_bottom = -364.0
 script = ExtResource( 4 )
 
 [node name="BG" type="ColorRect" parent="."]
@@ -29,12 +28,10 @@ anchor_bottom = 1.0
 color = Color( 0.0470588, 0.0431373, 0.0666667, 0.980392 )
 
 [node name="Retrait" type="ColorRect" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 7.0
-margin_top = -70.5
-margin_right = 114.0
-margin_bottom = 70.5
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 115.0
+margin_bottom = 149.0
 color = Color( 0.243137, 0.239216, 0.254902, 0.980392 )
 __meta__ = {
 "_edit_group_": true
@@ -50,93 +47,101 @@ margin_bottom = -5.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 123.0
-margin_top = 10.0
-margin_right = 293.0
-margin_bottom = 35.0
-custom_constants/separation = -3
+[node name="HPContainer" type="GridContainer" parent="."]
+margin_left = 129.0
+margin_top = 9.0
+margin_right = 267.0
+margin_bottom = 54.0
+custom_constants/vseparation = -15
+custom_constants/hseparation = -3
+columns = 5
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="H1" type="TextureRect" parent="HBoxContainer"]
-margin_right = 25.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H1" type="TextureRect" parent="HPContainer"]
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H2" type="TextureRect" parent="HBoxContainer"]
-margin_left = 22.0
-margin_right = 47.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H2" type="TextureRect" parent="HPContainer"]
+margin_left = 27.0
+margin_right = 57.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H3" type="TextureRect" parent="HBoxContainer"]
-margin_left = 44.0
-margin_right = 69.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H3" type="TextureRect" parent="HPContainer"]
+margin_left = 54.0
+margin_right = 84.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H4" type="TextureRect" parent="HBoxContainer"]
-margin_left = 66.0
-margin_right = 91.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H4" type="TextureRect" parent="HPContainer"]
+margin_left = 81.0
+margin_right = 111.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H5" type="TextureRect" parent="HBoxContainer"]
-margin_left = 88.0
-margin_right = 113.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H5" type="TextureRect" parent="HPContainer"]
+margin_left = 108.0
+margin_right = 138.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H6" type="TextureRect" parent="HBoxContainer"]
-margin_left = 110.0
-margin_right = 135.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H6" type="TextureRect" parent="HPContainer"]
+margin_top = 15.0
+margin_right = 30.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H7" type="TextureRect" parent="HBoxContainer"]
-margin_left = 132.0
-margin_right = 157.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H7" type="TextureRect" parent="HPContainer"]
+margin_left = 27.0
+margin_top = 15.0
+margin_right = 57.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H8" type="TextureRect" parent="HBoxContainer"]
-margin_left = 154.0
-margin_right = 179.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H8" type="TextureRect" parent="HPContainer"]
+margin_left = 54.0
+margin_top = 15.0
+margin_right = 84.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="H9" type="TextureRect" parent="HBoxContainer"]
-margin_left = 176.0
-margin_right = 201.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 25, 25 )
+[node name="H9" type="TextureRect" parent="HPContainer"]
+margin_left = 81.0
+margin_top = 15.0
+margin_right = 111.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 30, 30 )
 texture = ExtResource( 3 )
 expand = true
 
 [node name="Label" type="Label" parent="."]
 margin_left = 126.0
-margin_top = 48.0
-margin_right = 283.0
-margin_bottom = 129.0
+margin_top = 56.0
+margin_right = 265.0
+margin_bottom = 137.0
 custom_fonts/font = SubResource( 1 )
-text = "FUERZA: +0
-AGILIDAD: +2
-MENTE: +2"
+text = "HP: 10 / 10
+HP: 10 / 10
+HP: 10 / 10"
 
 [node name="ItemInfo" type="ColorRect" parent="."]
 visible = false
@@ -157,12 +162,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -144.5
-margin_top = 89.0
-margin_right = 145.5
-margin_bottom = 139.0
+margin_left = -130.0
+margin_top = -20.0
+margin_right = 130.0
+margin_bottom = 20.0
 custom_constants/vseparation = 10
-custom_constants/hseparation = 10
+custom_constants/hseparation = 4
 columns = 6
 
 [node name="DC1" type="Button" parent="Dices"]
@@ -184,8 +189,8 @@ expand = true
 stretch_mode = 6
 
 [node name="DC2" type="Button" parent="Dices"]
-margin_left = 50.0
-margin_right = 90.0
+margin_left = 44.0
+margin_right = 84.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
@@ -203,8 +208,8 @@ expand = true
 stretch_mode = 6
 
 [node name="DC3" type="Button" parent="Dices"]
-margin_left = 100.0
-margin_right = 140.0
+margin_left = 88.0
+margin_right = 128.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
@@ -222,8 +227,8 @@ expand = true
 stretch_mode = 6
 
 [node name="DC4" type="Button" parent="Dices"]
-margin_left = 150.0
-margin_right = 190.0
+margin_left = 132.0
+margin_right = 172.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
@@ -241,8 +246,8 @@ expand = true
 stretch_mode = 6
 
 [node name="DC5" type="Button" parent="Dices"]
-margin_left = 200.0
-margin_right = 240.0
+margin_left = 176.0
+margin_right = 216.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
@@ -260,8 +265,8 @@ expand = true
 stretch_mode = 6
 
 [node name="DC6" type="Button" parent="Dices"]
-margin_left = 250.0
-margin_right = 290.0
+margin_left = 220.0
+margin_right = 260.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
@@ -283,20 +288,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -145.0
-margin_top = 139.0
-margin_right = 145.0
-margin_bottom = 249.0
-custom_constants/vseparation = 10
-custom_constants/hseparation = 10
+margin_left = -125.0
+margin_top = 33.5
+margin_right = 125.0
+margin_bottom = 158.5
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
 columns = 3
 
 [node name="IT1" type="Button" parent="Items"]
-margin_right = 90.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 90, 50 )
+margin_right = 80.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT1"]
 anchor_right = 1.0
@@ -317,12 +321,11 @@ expand = true
 stretch_mode = 6
 
 [node name="IT2" type="Button" parent="Items"]
-margin_left = 100.0
-margin_right = 190.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 90, 50 )
+margin_left = 85.0
+margin_right = 165.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT2"]
 anchor_right = 1.0
@@ -343,12 +346,11 @@ expand = true
 stretch_mode = 6
 
 [node name="IT3" type="Button" parent="Items"]
-margin_left = 200.0
-margin_right = 290.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 90, 50 )
+margin_left = 170.0
+margin_right = 250.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT3"]
 anchor_right = 1.0
@@ -369,12 +371,11 @@ expand = true
 stretch_mode = 6
 
 [node name="IT4" type="Button" parent="Items"]
-margin_top = 60.0
-margin_right = 90.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 90, 50 )
+margin_top = 65.0
+margin_right = 80.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT4"]
 anchor_right = 1.0
@@ -395,13 +396,12 @@ expand = true
 stretch_mode = 6
 
 [node name="IT5" type="Button" parent="Items"]
-margin_left = 100.0
-margin_top = 60.0
-margin_right = 190.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 90, 50 )
+margin_left = 85.0
+margin_top = 65.0
+margin_right = 165.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT5"]
 anchor_right = 1.0
@@ -422,13 +422,12 @@ expand = true
 stretch_mode = 6
 
 [node name="IT6" type="Button" parent="Items"]
-margin_left = 200.0
-margin_top = 60.0
-margin_right = 290.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 90, 50 )
+margin_left = 170.0
+margin_top = 65.0
+margin_right = 250.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 80, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "my item"
 
 [node name="ColorRect" type="ColorRect" parent="Items/IT6"]
 anchor_right = 1.0

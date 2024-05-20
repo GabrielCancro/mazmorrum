@@ -203,6 +203,14 @@ margin_top = -83.0
 margin_right = 125.0
 margin_bottom = -16.0
 
+[node name="PlayerSheet" parent="." instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -276.0
+margin_top = -356.0
+margin_right = 0.0
+margin_bottom = 0.0
+
 [node name="DungeonLevel" type="TextureRect" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 margin_left = -4.0
@@ -211,14 +219,6 @@ margin_right = 112.0
 margin_bottom = 192.0
 texture = ExtResource( 3 )
 expand = true
-
-[node name="PlayerSheet" parent="." instance=ExtResource( 2 )]
-anchor_left = 1.0
-anchor_top = 1.0
-margin_left = -316.0
-margin_top = -382.0
-margin_right = -16.0
-margin_bottom = -232.0
 
 [node name="BG_DAMAGE" type="ColorRect" parent="."]
 visible = false
