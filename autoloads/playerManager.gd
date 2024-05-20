@@ -16,9 +16,6 @@ func _initialize_player_manager(_GAME):
 	PLAYER_TOKENS_CONTAINER = GAME.get_node("PlayerTokens")
 	MapManager.connect("load_new_room",self,"set_player_tokens")
 	set_current_player(current_player_index)
-	add_item_to_player("sword1")
-	add_item_to_player("shield1")
-	add_item_to_player("potion1")
 	
 func get_player_data(index = current_player_index):
 	return players[current_player_index]
@@ -83,11 +80,12 @@ func check_player_in_current_room(player_data):
 	return( player_data.posX == MapManager.get_current_room_data().posX
 		&& player_data.posY == MapManager.get_current_room_data().posY )
 
-func add_item_to_player(item_code):
+func add_item_to_player(item_data):
 	var pdata = get_player_data()
 	for i in range(pdata.items.size()):
 		if pdata.items[i]==null:
-			pdata.items[i] = ItemManager.get_item_data(item_code)
+			pdata.items[i] = item_data
 			emit_signal("update_player_data",pdata)
-			return
+			return true
 	Effector.add_float_text("wr_many_items",.5,.75)
+	return false

@@ -48,7 +48,8 @@ func create_new_room(x,y):
 		"is_explored":false,
 		"room_ref":null,
 		"state":"unexplored", #unexplored, ask, danger, safe
-		"tokens": CardManager.get_four_random_cards()
+		"tokens": CardManager.get_four_random_cards(),
+		"items": ItemManager.get_some_items()
 	}
 	if x==0 && y==0: room_data.doors = {"up":true,"down":true,"left":true,"right":true}
 	map["room_"+str(x)+"_"+str(y)] = room_data

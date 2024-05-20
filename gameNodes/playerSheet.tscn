@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/retraits/retrait1.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gameNodes/playerSheet.gd" type="Script" id=4]
 [ext_resource path="res://assets/items/sword.png" type="Texture" id=5]
 [ext_resource path="res://assets/dices/SW.png" type="Texture" id=6]
+[ext_resource path="res://gameNodes/ItemObject.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -13,6 +14,9 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
 [node name="PlayerSheet" type="Control"]
@@ -142,20 +146,6 @@ custom_fonts/font = SubResource( 1 )
 text = "HP: 10 / 10
 HP: 10 / 10
 HP: 10 / 10"
-
-[node name="ItemInfo" type="ColorRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.0470588, 0.0431373, 0.0666667, 0.980392 )
-
-[node name="Label" type="Label" parent="ItemInfo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
-text = "ITEM INFO"
-align = 1
-valign = 1
 
 [node name="Dices" type="GridContainer" parent="."]
 anchor_left = 0.5
@@ -296,153 +286,76 @@ custom_constants/vseparation = 5
 custom_constants/hseparation = 5
 columns = 3
 
-[node name="IT1" type="Button" parent="Items"]
-margin_right = 80.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
+[node name="ItemObject" parent="Items" instance=ExtResource( 7 )]
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="IT2" type="Button" parent="Items"]
+[node name="ItemObject2" parent="Items" instance=ExtResource( 7 )]
 margin_left = 85.0
 margin_right = 165.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="IT3" type="Button" parent="Items"]
+[node name="ItemObject3" parent="Items" instance=ExtResource( 7 )]
 margin_left = 170.0
 margin_right = 250.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="IT4" type="Button" parent="Items"]
+[node name="ItemObject4" parent="Items" instance=ExtResource( 7 )]
 margin_top = 65.0
-margin_right = 80.0
 margin_bottom = 125.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT4"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="IT5" type="Button" parent="Items"]
+[node name="ItemObject5" parent="Items" instance=ExtResource( 7 )]
 margin_left = 85.0
 margin_top = 65.0
 margin_right = 165.0
 margin_bottom = 125.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT5"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="IT6" type="Button" parent="Items"]
+[node name="ItemObject6" parent="Items" instance=ExtResource( 7 )]
 margin_left = 170.0
 margin_top = 65.0
 margin_right = 250.0
 margin_bottom = 125.0
-rect_min_size = Vector2( 80, 60 )
-custom_fonts/font = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="Items/IT6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.258824, 0.27451, 0.537255, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Items/IT6"]
+[node name="ItemInfo" type="ColorRect" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.0
-margin_top = -22.5
-margin_right = 36.0
-margin_bottom = 22.5
+anchor_bottom = 1.0
+margin_left = -138.0
+margin_top = -263.0
+margin_right = 138.0
+margin_bottom = -155.0
+color = Color( 0.2, 0.2, 0.2, 0.980392 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Image" type="TextureRect" parent="ItemInfo"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 80.0
+margin_bottom = 79.0
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
+
+[node name="Label" type="Label" parent="ItemInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 81.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 1 )
+text = "ITEM INFO"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="ItemInfo"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -138.0
+margin_top = -22.0
+margin_right = 138.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0.709804, 0.709804, 0.709804, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "CLICK TO USE / HOLD TO DROP"
+align = 1
+valign = 1

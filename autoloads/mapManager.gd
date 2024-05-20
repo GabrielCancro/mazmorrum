@@ -46,6 +46,7 @@ func load_room(x,y):
 	update_room_exploration_state(x,y-1)
 	update_room_exploration_state(x+1,y)
 	update_room_exploration_state(x-1,y)
+	ItemManager.OBJECTS_IN_ROOM.load_room_items()
 	emit_signal("load_new_room",new_room.data)
 
 func load_current_player_room():
