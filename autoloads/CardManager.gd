@@ -38,6 +38,7 @@ func run_action(card):
 	print("RUN ACTION ",current_card.token_index,".",current_card.type)
 	Effector.resalt_card(card.card_ref)
 	yield(get_tree().create_timer(.5),"timeout")
+	if card.actions.size()==0: yield(get_tree().create_timer(.75),"timeout")
 	for ac in card.actions: 
 		if ac.all_req_assigned:
 			var action_method = "ac_"+card.type+"_"+ac.name

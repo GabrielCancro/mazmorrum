@@ -39,6 +39,15 @@ func appear(node):
 	tween.interpolate_property(node,"modulate",Color(1,1,1,0),Color(1,1,1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()
 
+func damage_player():
+	var node = GAME.get_node("BG_DAMAGE")
+	node.modulate.a = 0
+	node.visible = true
+	tween.interpolate_property(node,"modulate",Color(1,1,1,.5),Color(1,1,1,0),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
+	tween.start()
+	yield(tween,"tween_completed")
+	node.visible = false
+
 func from_scale(node):
 	tween.interpolate_property(node,"rect_scale",Vector2(1.2,1.2),Vector2(1,1),.3,Tween.TRANS_QUAD,Tween.EASE_IN)
 	tween.start()

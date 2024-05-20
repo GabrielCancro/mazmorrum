@@ -50,7 +50,7 @@ func load_room(x,y):
 
 func load_current_player_room():
 	var nextX = PlayerManager.get_player_data().posX
-	var nextY =PlayerManager.get_player_data().posY
+	var nextY = PlayerManager.get_player_data().posY
 	load_room(nextX, nextY)
 
 func update_room_exploration_state(x,y):

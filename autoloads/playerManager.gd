@@ -28,10 +28,9 @@ func player_data_inc(k,v):
 	player_data[k] += v
 	if player_data[k]<0: 
 		player_data[k] = 0
+		emit_signal("update_player_data",player_data)
 		return false
-	if k=="hp" && player_data["hp"]>player_data["hpm"]: player_data["hp"] = player_data["hpm"]
-	if k=="mv" && player_data["mv"]>player_data["mvm"]: player_data["mv"] = player_data["mvm"]
-	if k=="rl" && player_data["rl"]>player_data["rlm"]: player_data["rl"] = player_data["mvm"]
+	if k+"m" in player_data: player_data[k] = min(player_data[k],player_data[k+"m"])
 	emit_signal("update_player_data",player_data)
 	return true
 
@@ -46,7 +45,9 @@ func get_player_token(index = current_player_index):
 func damage_player(dam=1):
 	var player_data = get_player_data()
 	player_data.hp -= 1
-	if dam>0: Effector.shake(get_player_token(),5)
+	if dam>0: 
+		Effector.shake(get_player_token(),5)
+		Effector.damage_player()
 	emit_signal("update_player_data",player_data)
 
 func set_current_player(index):
@@ -66,8 +67,17 @@ func set_player_tokens(room_data):
 			continue
 		else:
 			var pdata = players[PT.get_index()]
-			PT.get_node("Image").texture = load("res://assets/retraits/token_retrait"+str(pdata.retrait)+".png")
-			PT.visible = check_player_in_current_room(pdata)
+			PT.get_node("Retrait/Image").texture = load("res://assets/retraits/token_retrait"+str(pdata.retrait)+".png")
+			PT.visible = false
+			if check_player_in_current_room(pdata):
+				PT.visible = true
+				if PT.get_index()!=current_player_index: 
+					PT.get_child(0).rect_scale = Vector2(.8,.8)
+					PT.modulate = Color(.6,.6,.6,1)
+				else: 
+					PT.get_child(0).rect_scale = Vector2(1,1)
+					PT.modulate = Color(1,1,1,1)
+	
 
 func check_player_in_current_room(player_data):
 	return( player_data.posX == MapManager.get_current_room_data().posX

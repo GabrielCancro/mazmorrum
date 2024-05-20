@@ -14,7 +14,7 @@ func set_data(tk,ac_index):
 	action_data = tk.actions[ac_index]
 	action_data["action_index"] = ac_index
 	action_data["action_ref"] = self
-	$Label.text = str(token_data.token_index)+"."+action_data.name.to_upper()
+	$Label.text = action_data.name.to_upper()
 	action_reqs = []
 	for rn in get_node("HBoxReq").get_children():
 		if rn.get_index()>action_data.req.size()-1: rn.visible = false

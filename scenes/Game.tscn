@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://gameNodes/DiceSet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameNodes/playerSheet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bg_dungeon_level.png" type="Texture" id=3]
-[ext_resource path="res://assets/retraits/token_retrait1.png" type="Texture" id=4]
 [ext_resource path="res://assets/AbyssinicaSIL-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=6]
 [ext_resource path="res://gameNodes/HintText.tscn" type="PackedScene" id=7]
@@ -11,7 +10,6 @@
 [ext_resource path="res://gameNodes/RoomFull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameNodes/minimap.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/retraits/token_retrait3.png" type="Texture" id=11]
-[ext_resource path="res://assets/retraits/token_retrait2.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=3]
 size = 24
@@ -117,15 +115,21 @@ margin_left = 107.0
 margin_right = 207.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 50, 100 )
 
-[node name="Outline" type="TextureRect" parent="PlayerTokens/PT1"]
+[node name="Retrait" type="Control" parent="PlayerTokens/PT1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 50.5, 100 )
+
+[node name="Outline" type="TextureRect" parent="PlayerTokens/PT1/Retrait"]
 modulate = Color( 0.145098, 0.176471, 0.662745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Image" type="TextureRect" parent="PlayerTokens/PT1"]
+[node name="Image" type="TextureRect" parent="PlayerTokens/PT1/Retrait"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 11 )
@@ -136,18 +140,24 @@ margin_left = 211.0
 margin_right = 311.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 50, 100 )
 
-[node name="Outline" type="TextureRect" parent="PlayerTokens/PT2"]
-modulate = Color( 1, 0.168627, 0, 1 )
+[node name="Retrait" type="Control" parent="PlayerTokens/PT2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 50.5, 100 )
+
+[node name="Outline" type="TextureRect" parent="PlayerTokens/PT2/Retrait"]
+modulate = Color( 1, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Image" type="TextureRect" parent="PlayerTokens/PT2"]
+[node name="Image" type="TextureRect" parent="PlayerTokens/PT2/Retrait"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="PT3" type="Control" parent="PlayerTokens"]
@@ -155,18 +165,24 @@ margin_left = 315.0
 margin_right = 415.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 50, 100 )
 
-[node name="Outline" type="TextureRect" parent="PlayerTokens/PT3"]
-modulate = Color( 0.741176, 0.752941, 0, 1 )
+[node name="Retrait" type="Control" parent="PlayerTokens/PT3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 50.5, 100 )
+
+[node name="Outline" type="TextureRect" parent="PlayerTokens/PT3/Retrait"]
+modulate = Color( 0.243137, 1, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Image" type="TextureRect" parent="PlayerTokens/PT3"]
+[node name="Image" type="TextureRect" parent="PlayerTokens/PT3/Retrait"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="Minimap" parent="." instance=ExtResource( 10 )]
