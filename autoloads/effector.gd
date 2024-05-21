@@ -145,3 +145,7 @@ func shake(node,power=2,time=.5):
 		time -= .025
 		yield(get_tree().create_timer(.025),"timeout")
 	node.rect_position = ini_pos
+
+func go_back_dice(dice_node):
+	tween.interpolate_property(dice_node,"rect_global_position",dice_node.rect_global_position,dice_node.start_pos,.3,Tween.TRANS_QUAD,Tween.EASE_OUT)
+	tween.start()

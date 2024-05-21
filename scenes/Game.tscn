@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://gameNodes/DiceSet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameNodes/playerSheet.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://gameNodes/RoomFull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameNodes/minimap.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/retraits/token_retrait3.png" type="Texture" id=11]
+[ext_resource path="res://gameNodes/DiceSlot.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -40,6 +41,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="RoomFull" parent="RoomContainer" instance=ExtResource( 9 )]
+
+[node name="DiceSlot" parent="." instance=ExtResource( 12 )]
+margin_left = 848.0
+margin_top = 506.0
+margin_right = 898.0
+margin_bottom = 556.0
+
+[node name="DiceSlot2" parent="." instance=ExtResource( 12 )]
+margin_left = 922.0
+margin_top = 510.0
+margin_right = 972.0
+margin_bottom = 560.0
+req = "EY"
+
+[node name="DiceSlot3" parent="." instance=ExtResource( 12 )]
+margin_left = 1025.0
+margin_top = 523.0
+margin_right = 1075.0
+margin_bottom = 573.0
+req = "BT"
+
+[node name="DiceSlot4" parent="." instance=ExtResource( 12 )]
+margin_left = 1039.0
+margin_top = 423.0
+margin_right = 1089.0
+margin_bottom = 473.0
+req = "HN"
 
 [node name="PlayerTokens" type="HBoxContainer" parent="."]
 anchor_left = 0.5
@@ -144,16 +172,6 @@ margin_top = -304.5
 margin_right = -40.0
 margin_bottom = 144.5
 
-[node name="DiceSet" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -317.0
-margin_top = -83.0
-margin_right = 125.0
-margin_bottom = -16.0
-
 [node name="PlayerSheet" parent="." instance=ExtResource( 2 )]
 anchor_top = 0.5
 anchor_right = 0.0
@@ -241,6 +259,16 @@ margin_left = 19.0
 margin_top = -105.0
 margin_right = 368.0
 margin_bottom = -15.0
+
+[node name="DiceSet" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -317.0
+margin_top = -83.0
+margin_right = 125.0
+margin_bottom = -16.0
 
 [node name="BG_INPUT" type="ColorRect" parent="."]
 visible = false

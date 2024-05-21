@@ -3,10 +3,30 @@ extends Node
 var GAME
 var DICE_SET
 var DICE_NODES = []
+var dice_sellected
+var slot_in_area
 
 var dice_types = {
-	"basic":["SW","SW","HN","BT","",""]
+	"basic":["SW","EY","HN","BT","SC",""]
 }
+
+func _process(delta):
+	if dice_sellected: 
+		print(dice_sellected.value)
+		dice_sellected.rect_global_position = get_viewport().get_mouse_position()-dice_sellected.rect_pivot_offset
+
+func _input(event):
+	var mouse_up = dice_sellected && event is InputEventMouseButton && !event.pressed
+	if mouse_up:
+		if slot_in_area:
+			slot_in_area.have_dice = dice_sellected
+			dice_sellected.in_slot = slot_in_area
+			dice_sellected = null
+			slot_in_area = null
+		else:
+			Effector.go_back_dice(dice_sellected)
+			dice_sellected = null
+			slot_in_area = null
 
 func _initialize_dice_manager(_GAME):
 	GAME = _GAME

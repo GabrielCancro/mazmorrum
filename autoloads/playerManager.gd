@@ -4,10 +4,7 @@ var GAME
 var PLAYER_TOKENS_CONTAINER
 var PLAYER_TOKEN:PlayerToken
 var current_player_index = 0
-var players = [
-		{"retrait":1,"hp":6,"hpm":6,"mv":3,"mvm":3,"rl":2,"rlm":2,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]},
-		{"retrait":2,"hp":6,"hpm":6,"mv":3,"mvm":3,"rl":2,"rlm":2,"posX":0,"posY":0,"items":[null,null,null,null,null,null],"dices":["dBS","dBS","dBS",null,null,null]}
-	]
+var players = []
 
 signal update_player_data(player_data)
 
@@ -15,8 +12,22 @@ func _initialize_player_manager(_GAME):
 	GAME = _GAME
 	PLAYER_TOKENS_CONTAINER = GAME.get_node("PlayerTokens")
 	MapManager.connect("load_new_room",self,"set_player_tokens")
+	init_players_data(2)
 	set_current_player(current_player_index)
-	
+
+func init_players_data(amount):
+	for i in range(amount):
+		players.append({
+			"retrait":i+1,
+			"hp":6,"hpm":6,
+			"mv":3,"mvm":3,
+			"rl":2,"rlm":2,
+			"posX":0,"posY":0,
+			"items":[null,null,null,null,null,null],
+			"dices":["basic","basic","basic","basic"]
+		})
+		
+
 func get_player_data(index = current_player_index):
 	return players[current_player_index]
 

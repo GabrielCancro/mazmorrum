@@ -148,7 +148,6 @@ HP: 10 / 10
 HP: 10 / 10"
 
 [node name="Dices" type="GridContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -157,7 +156,6 @@ margin_left = -130.0
 margin_top = -20.0
 margin_right = 130.0
 margin_bottom = 20.0
-custom_constants/vseparation = 10
 custom_constants/hseparation = 4
 columns = 6
 
@@ -166,10 +164,31 @@ margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC1"]
@@ -185,10 +204,31 @@ margin_right = 84.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC2"]
@@ -204,10 +244,31 @@ margin_right = 128.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC3"]
@@ -223,10 +284,31 @@ margin_right = 172.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC4"]
@@ -242,10 +324,31 @@ margin_right = 216.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC5"]
@@ -261,10 +364,31 @@ margin_right = 260.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_fonts/font = SubResource( 2 )
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dices/DC6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.5
+margin_top = -17.5
+margin_right = 17.5
+margin_bottom = 17.5
+color = Color( 0.258824, 0.27451, 0.537255, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Dices/DC6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 16, 16 )
 color = Color( 0.258824, 0.27451, 0.537255, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Dices/DC6"]
@@ -314,6 +438,7 @@ margin_right = 250.0
 margin_bottom = 125.0
 
 [node name="ItemInfo" type="ColorRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

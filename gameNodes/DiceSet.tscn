@@ -11,8 +11,9 @@ outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
 font_data = ExtResource( 3 )
 
 [node name="DiceSet" type="Control"]
-margin_right = 396.0
-margin_bottom = 67.0
+margin_right = 400.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 198, 34 )
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

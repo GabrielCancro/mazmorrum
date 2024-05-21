@@ -5,10 +5,13 @@ var type = "basic"
 var value = ""
 var start_pos
 var is_disabled
+var in_slot
 
 func _ready():
-	start_pos = rect_global_position
+	$Button.connect("button_down",self,"on_mouse_down")
 	reset()
+	yield(get_tree().create_timer(.1),"timeout")
+	start_pos = rect_global_position
 
 func roll():
 	var faces = DiceManager.get_dice_faces(type)
@@ -39,3 +42,8 @@ func set_disabled(val):
 
 func is_disabled():
 	return is_disabled
+
+func on_mouse_down():
+	DiceManager.dice_sellected = self
+	if in_slot: in_slot.have_dice = null
+	in_slot = null

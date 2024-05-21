@@ -11,6 +11,7 @@ func _ready():
 	DungeonManager._initialize_dungeon_manager(self)
 	$Button.connect("button_down",self,"on_end_turn")
 	yield(get_tree().create_timer(.1),"timeout")
+	$DiceSet.reset_set()
 
 func _input(ev):
 	if !DungeonManager.ENABLED_INPUT: return
@@ -28,10 +29,10 @@ func on_end_turn():
 		yield(CardManager,"end_all_actions")
 		yield(get_tree().create_timer(.2),"timeout")
 	yield(get_tree().create_timer(.5),"timeout")
-	$DiceSet.reset_set()
 	PlayerManager.set_next_player()
 	PlayerManager.player_data_inc("mv",99)
 	PlayerManager.player_data_inc("rl",99)
+	$DiceSet.reset_set()
 	MapManager.load_current_player_room()
 
 func set_door_buttons(room_data):

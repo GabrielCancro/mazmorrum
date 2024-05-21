@@ -48,7 +48,7 @@ func fill_items(data):
 func fill_dices(data):
 	for it in $Dices.get_children():
 		var i = it.get_index()
-		if data.dices[i] == null:
+		if i>=data.dices.size():
 			it.get_node("TextureRect").texture = null
 		else: 
 			it.get_node("TextureRect").texture = load("res://assets/dices/AX.png")
